@@ -73,7 +73,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            font-size: 18px; /* Larger base font for better readability */
+            font-size: 18px;
             line-height: 1.7;
             color: var(--text-primary);
             background: var(--bg-primary);
@@ -636,6 +636,115 @@
             opacity: 1;
         }
 
+        .practical-box {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        [data-theme="dark"] .practical-box {
+            background: var(--bg-tertiary);
+            border-color: var(--accent-gold);
+        }
+
+        .practical-box h3 {
+            color: var(--accent-gold);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .practical-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .practical-box li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .practical-box li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .implementation-timeline {
+            background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .timeline-marker {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .timeline-content h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .metric-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-green);
+            margin-bottom: 0.25rem;
+        }
+
+        [data-theme="dark"] .metric-value {
+            color: var(--accent-gold);
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.8rem;
@@ -746,6 +855,117 @@
             color: var(--text-dark);
             border-color: var(--accent-gold);
         }
+
+        /* Vision Box Style */
+        .vision-box {
+            background: linear-gradient(135deg, rgba(27, 94, 32, 0.1), rgba(74, 20, 140, 0.1));
+            border: 2px solid var(--primary-green);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(249, 168, 37, 0.1) 0%, transparent 70%);
+            animation: shimmer 4s infinite alternate;
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        [data-theme="dark"] .vision-box {
+            background: linear-gradient(135deg, rgba(129, 199, 132, 0.1), rgba(186, 104, 200, 0.1));
+            border-color: var(--accent-gold);
+        }
+
+        .vision-box h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        [data-theme="dark"] .vision-box h3 {
+            color: var(--accent-gold);
+        }
+
+        .vision-box p {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        /* Principles Section */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .principle-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-gold);
+        }
+
+        .principle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-gold));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .principle-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        [data-theme="dark"] .principle-card {
+            background: var(--bg-tertiary);
+        }
+
+        .principle-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .principle-title {
+            color: var(--secondary-green);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        [data-theme="dark"] .principle-title {
+            color: var(--accent-gold);
+        }
     </style>
 </head>
 <body>
@@ -762,9 +982,9 @@
         </div>
         
         <div class="container">
-            <div class="movement-badge" data-es="Movimiento Solarpunk Global" data-en="Global Solarpunk Movement">Movimiento Solarpunk Global</div>
+            <div class="movement-badge" data-es="Movimiento Solarpunk Práctico Global" data-en="Global Practical Solarpunk Movement">Movimiento Solarpunk Práctico Global</div>
             <h1 data-es="La Carta para la Empresa Regenerativa" data-en="The Charter for Regenerative Enterprise">La Carta para la Empresa Regenerativa</h1>
-            <p class="subtitle" data-es="Una Declaración Multi-Capital para la Transformación Organizacional" data-en="A Multi-Capital Declaration for Organizational Transformation">Una Declaración Multi-Capital para la Transformación Organizacional</p>
+            <p class="subtitle" data-es="Una Declaración Multi-Capital para la Transformación Organizacional Práctica" data-en="A Multi-Capital Declaration for Practical Organizational Transformation">Una Declaración Multi-Capital para la Transformación Organizacional Práctica</p>
             
             <div class="movement-logos">
                 <div class="logo-placeholder">🌱</div>
@@ -791,128 +1011,392 @@
     <main class="main-content">
         <div class="content-section" id="carta">
             <div class="preamble">
-                <strong data-es='"Sostenemos estas verdades como evidentes por sí mismas: que todas las empresas existen dentro de redes interconectadas de capital, que la verdadera prosperidad emerge de regenerar en lugar de agotar estos capitales, y que nuestro interés propio se extiende mucho más allá de las fronteras inmediatas del lucro y el trimestre."' data-en='"We hold these truths to be self-evident: that all enterprises exist within interconnected webs of capital, that true prosperity emerges from regenerating rather than depleting these capitals, and that our self-interest extends far beyond the immediate boundaries of profit and quarter."'>"Sostenemos estas verdades como evidentes por sí mismas: que todas las empresas existen dentro de redes interconectadas de capital, que la verdadera prosperidad emerge de regenerar en lugar de agotar estos capitales, y que nuestro interés propio se extiende mucho más allá de las fronteras inmediatas del lucro y el trimestre."</strong>
+                <strong data-es='"Sostenemos estas verdades como evidentes por sí mismas: que todas las empresas existen dentro de redes interconectadas de capital, que la verdadera prosperidad emerge de regenerar en lugar de agotar estos capitales, y que nuestro éxito se mide no solo en lo que tomamos, sino en lo que dejamos floreciendo detrás de nosotros."' data-en='"We hold these truths to be self-evident: that all enterprises exist within interconnected webs of capital, that true prosperity emerges from regenerating rather than depleting these capitals, and that our success is measured not by what we take, but by what we leave flourishing behind us."'>"Sostenemos estas verdades como evidentes por sí mismas: que todas las empresas existen dentro de redes interconectadas de capital, que la verdadera prosperidad emerge de regenerar en lugar de agotar estos capitales, y que nuestro éxito se mide no solo en lo que tomamos, sino en lo que dejamos floreciendo detrás de nosotros."</strong>
             </div>
 
             <h2 data-es="Preámbulo" data-en="Preamble">Preámbulo</h2>
-            <p data-es='Nosotros, como guardianes de la empresa en el siglo XXI, reconocemos que la era del capitalismo extractivo ha alcanzado sus límites naturales. Los límites planetarios claman, los fundamentos sociales se desmoronan, y el tejido mismo de la civilización se tensa bajo el peso del pensamiento a corto plazo.' data-en='We, as stewards of enterprise in the 21st century, recognize that the era of extractive capitalism has reached its natural limits. Planetary boundaries cry out, social foundations crumble, and the very fabric of civilization strains under the weight of short-term thinking.'>Nosotros, como guardianes de la empresa en el siglo XXI, reconocemos que la era del <span class="highlight-term">capitalismo extractivo<span class="tooltip" data-es="Sistema económico que agota recursos naturales y sociales para maximizar ganancias a corto plazo, sin considerar la regeneración o sostenibilidad a largo plazo." data-en="Economic system that depletes natural and social resources to maximize short-term profits, without considering long-term regeneration or sustainability.">Sistema económico que agota recursos naturales y sociales para maximizar ganancias a corto plazo, sin considerar la regeneración o sostenibilidad a largo plazo.</span></span> ha alcanzado sus límites naturales. Los <span class="highlight-term">límites planetarios<span class="tooltip" data-es="Nueve procesos del sistema terrestre que regulan la estabilidad y resistencia del planeta: cambio climático, pérdida de biodiversidad, ciclos biogeoquímicos, etc." data-en="Nine Earth system processes that regulate the planet's stability and resilience: climate change, biodiversity loss, biogeochemical cycles, etc.">Nueve procesos del sistema terrestre que regulan la estabilidad y resistencia del planeta: cambio climático, pérdida de biodiversidad, ciclos biogeoquímicos, etc.</span></span> claman, los fundamentos sociales se desmoronan, y el tejido mismo de la civilización se tensa bajo el peso del pensamiento a corto plazo.</p>
+            <p data-es='En el umbral de la crisis planetaria y la oportunidad sin precedentes, nosotros, los constructores del mañana, reconocemos que el capitalismo extractivo ha llegado a su fecha de caducidad. Los sistemas vivos gritan por regeneración, las comunidades anhelan conexión, y las almas buscan propósito más allá del lucro.' data-en='At the threshold of planetary crisis and unprecedented opportunity, we, the builders of tomorrow, recognize that extractive capitalism has reached its expiration date. Living systems cry out for regeneration, communities yearn for connection, and souls seek purpose beyond profit.'>En el umbral de la crisis planetaria y la oportunidad sin precedentes, nosotros, los constructores del mañana, reconocemos que el <span class="highlight-term">capitalismo extractivo<span class="tooltip" data-es="Sistema económico que agota recursos naturales y sociales para maximizar ganancias a corto plazo, sin considerar la regeneración o sostenibilidad a largo plazo." data-en="Economic system that depletes natural and social resources to maximize short-term profits, without considering long-term regeneration or sustainability.">Sistema económico que agota recursos naturales y sociales para maximizar ganancias a corto plazo, sin considerar la regeneración o sostenibilidad a largo plazo.</span></span> ha llegado a su fecha de caducidad. Los sistemas vivos gritan por regeneración, las comunidades anhelan conexión, y las almas buscan propósito más allá del lucro.</p>
 
-            <p data-es='Esta Carta establece los principios fundamentales para la Empresa Regenerativa—organizaciones que operan dentro del espacio seguro de la dona multi-capital mientras honran el espectro completo del interés propio iluminado.' data-en='This Charter establishes the fundamental principles for Regenerative Enterprise—organizations that operate within the safe space of the multi-capital doughnut while honoring the full spectrum of enlightened self-interest.'>Esta Carta establece los principios fundamentales para la <span class="highlight-term">Empresa Regenerativa<span class="tooltip" data-es="Organizaciones que operan para regenerar los sistemas naturales y sociales, creando valor para todos los stakeholders mientras respetan los límites planetarios." data-en="Organizations that operate to regenerate natural and social systems, creating value for all stakeholders while respecting planetary boundaries.">Organizaciones que operan para regenerar los sistemas naturales y sociales, creando valor para todos los stakeholders mientras respetan los límites planetarios.</span></span>—organizaciones que operan dentro del espacio seguro de la <span class="highlight-term">dona multi-capital<span class="tooltip" data-es="Modelo económico que combina límites planetarios con fundamentos sociales, expandido para incluir ocho formas diferentes de capital." data-en="Economic model that combines planetary boundaries with social foundations, expanded to include eight different forms of capital.">Modelo económico que combina límites planetarios con fundamentos sociales, expandido para incluir ocho formas diferentes de capital.</span></span> mientras honran el espectro completo del interés propio iluminado.</p>
+            <p data-es='Inspirados por los principios de la biomimética—aprendiendo de 3.8 mil millones de años de evolución de la naturaleza—y guiados por la conciencia de interconexión que nos une a todos, declaramos el nacimiento de la Empresa Regenerativa: organizaciones que operan dentro de los límites planetarios mientras regeneran activamente todos los sistemas que tocan.' data-en='Inspired by the principles of biomimicry—learning from nature's 3.8 billion years of evolution—and guided by the awareness of interconnection that binds us all, we declare the birth of the Regenerative Enterprise: organizations that operate within planetary boundaries while actively regenerating all systems they touch.'>Inspirados por los principios de la <span class="highlight-term">biomimética<span class="tooltip" data-es="Innovación sostenible inspirada por la naturaleza, aprendiendo de 3.8 mil millones de años de evolución y adaptación." data-en="Sustainable innovation inspired by nature, learning from 3.8 billion years of evolution and adaptation.">Innovación sostenible inspirada por la naturaleza, aprendiendo de 3.8 mil millones de años de evolución y adaptación.</span></span>—aprendiendo de 3.8 mil millones de años de evolución de la naturaleza—y guiados por la <span class="highlight-term">conciencia de interconexión<span class="tooltip" data-es="Reconocimiento profundo de que todos los seres y sistemas están fundamentalmente conectados e interdependientes." data-en="Deep recognition that all beings and systems are fundamentally connected and interdependent.">Reconocimiento profundo de que todos los seres y sistemas están fundamentalmente conectados e interdependientes.</span></span> que nos une a todos, declaramos el nacimiento de la <span class="highlight-term">Empresa Regenerativa<span class="tooltip" data-es="Organizaciones que operan para regenerar sistemas naturales y sociales, creando valor para todos los stakeholders mientras respetan los límites planetarios." data-en="Organizations that operate to regenerate natural and social systems, creating value for all stakeholders while respecting planetary boundaries.">Organizaciones que operan para regenerar sistemas naturales y sociales, creando valor para todos los stakeholders mientras respetan los límites planetarios.</span></span>: organizaciones que operan dentro de los <span class="highlight-term">límites planetarios<span class="tooltip" data-es="Nueve procesos del sistema terrestre que regulan la estabilidad y resiliencia del planeta: cambio climático, pérdida de biodiversidad, ciclos biogeoquímicos, etc." data-en="Nine Earth system processes that regulate the planet's stability and resilience: climate change, biodiversity loss, biogeochemical cycles, etc.">Nueve procesos del sistema terrestre que regulan la estabilidad y resiliencia del planeta: cambio climático, pérdida de biodiversidad, ciclos biogeoquímicos, etc.</span></span> mientras regeneran activamente todos los sistemas que tocan.</p>
 
-            <h2 data-es="Artículo I: Los Ocho Pilares de la Gestión del Capital" data-en="Article I: The Eight Pillars of Capital Stewardship">Artículo I: Los Ocho Pilares de la Gestión del Capital</h2>
-            <p data-es="Nos comprometemos a reconocer, medir y regenerar ocho formas de capital como el fundamento de todas las decisiones empresariales:" data-en="We pledge to recognize, measure, and regenerate eight forms of capital as the foundation of all enterprise decisions:">Nos comprometemos a reconocer, medir y regenerar ocho formas de capital como el fundamento de todas las decisiones empresariales:</p>
+            <p data-es='Esta Carta no es meramente una declaración de intenciones—es un pacto moral y espiritual para la sanación sistémica. Establece principios accionables, métricas medibles, y caminos concretos para organizaciones listas para convertirse en fuerzas regenerativas en el mundo.' data-en='This Charter is not merely a declaration of intent—it is a moral and spiritual covenant for systemic healing. It establishes actionable principles, measurable metrics, and concrete pathways for organizations ready to become regenerative forces in the world.'>Esta Carta no es meramente una declaración de intenciones—es un <span class="highlight-term">pacto moral y espiritual<span class="tooltip" data-es="Compromiso profundo que trasciende los contratos legales, basado en valores compartidos y responsabilidad hacia el bienestar colectivo." data-en="Deep commitment that transcends legal contracts, based on shared values and responsibility toward collective wellbeing.">Compromiso profundo que trasciende los contratos legales, basado en valores compartidos y responsabilidad hacia el bienestar colectivo.</span></span> para la <span class="highlight-term">sanación sistémica<span class="tooltip" data-es="Proceso de reparar y regenerar sistemas completos (económicos, sociales, ecológicos) en lugar de solo tratar síntomas superficiales." data-en="Process of repairing and regenerating complete systems (economic, social, ecological) rather than just treating surface symptoms.">Proceso de reparar y regenerar sistemas completos (económicos, sociales, ecológicos) en lugar de solo tratar síntomas superficiales.</span></span>. Establece principios accionables, métricas medibles, y caminos concretos para organizaciones listas para convertirse en fuerzas regenerativas en el mundo.</p>
+
+            <div class="vision-box">
+                <h3 data-es="🌟 Nuestra Visión: La Dona Multi-Capital" data-en="🌟 Our Vision: The Multi-Capital Doughnut">🌟 Nuestra Visión: La Dona Multi-Capital</h3>
+                <p data-es='Imaginamos un mundo donde cada empresa opera dentro del espacio seguro y justo para la humanidad—el punto dulce entre los límites regenerativos de nuestro planeta y los cimientos sociales de dignidad humana. Esta "Dona Multi-Capital" expande el modelo económico clásico para incluir ocho formas interconectadas de riqueza, creando organizaciones que prosperan mientras sanan.' data-en='We envision a world where every enterprise operates within the safe and just space for humanity—the sweet spot between our planet's regenerative limits and the social foundations of human dignity. This "Multi-Capital Doughnut" expands the classic economic model to include eight interconnected forms of wealth, creating organizations that thrive while healing.'>Imaginamos un mundo donde cada empresa opera dentro del espacio seguro y justo para la humanidad—el punto dulce entre los <span class="highlight-term">límites regenerativos<span class="tooltip" data-es="Capacidad de los ecosistemas para renovarse y mantenerse saludables mientras proveen recursos y servicios." data-en="Capacity of ecosystems to renew and maintain themselves healthy while providing resources and services.">Capacidad de los ecosistemas para renovarse y mantenerse saludables mientras proveen recursos y servicios.</span></span> de nuestro planeta y los cimientos sociales de dignidad humana. Esta <span class="highlight-term">"Dona Multi-Capital"<span class="tooltip" data-es="Modelo económico que combina límites planetarios con fundamentos sociales, expandido para incluir ocho formas diferentes de capital." data-en="Economic model that combines planetary boundaries with social foundations, expanded to include eight different forms of capital.">Modelo económico que combina límites planetarios con fundamentos sociales, expandido para incluir ocho formas diferentes de capital.</span></span> expande el modelo económico clásico para incluir ocho formas interconectadas de riqueza, creando organizaciones que prosperan mientras sanan.</p>
+            </div>
+
+            <div class="practical-box">
+                <h3><span>🛠️</span> <span data-es="Por Qué Esta Carta Es Diferente" data-en="Why This Charter Is Different">Por Qué Esta Carta Es Diferente</span></h3>
+                <ul>
+                    <li data-es="Incluye métricas específicas y KPIs para cada forma de capital" data-en="Includes specific metrics and KPIs for each form of capital">Incluye métricas específicas y KPIs para cada forma de capital</li>
+                    <li data-es="Proporciona herramientas de implementación descargables y plantillas" data-en="Provides downloadable implementation tools and templates">Proporciona herramientas de implementación descargables y plantillas</li>
+                    <li data-es="Ofrece caminos de transición para empresas en diferentes etapas" data-en="Offers transition pathways for enterprises at different stages">Ofrece caminos de transición para empresas en diferentes etapas</li>
+                    <li data-es="Conecta con una red global de apoyo entre pares" data-en="Connects to a global peer support network">Conecta con una red global de apoyo entre pares</li>
+                    <li data-es="Se actualiza anualmente basado en datos del mundo real" data-en="Updates annually based on real-world data">Se actualiza anualmente basado en datos del mundo real</li>
+                </ul>
+            </div>
+
+            <h2 data-es="Principios Fundacionales de la Innovación Regenerativa" data-en="Foundational Principles of Regenerative Innovation">Principios Fundacionales de la Innovación Regenerativa</h2>
+            <p data-es='Antes de explorar los ocho capitales, establecemos los principios fundamentales que guían toda innovación regenerativa:' data-en='Before exploring the eight capitals, we establish the fundamental principles that guide all regenerative innovation:'>Antes de explorar los ocho capitales, establecemos los principios fundamentales que guían toda <span class="highlight-term">innovación regenerativa<span class="tooltip" data-es="Desarrollo de soluciones que no solo resuelven problemas sino que mejoran activamente los sistemas naturales y sociales." data-en="Development of solutions that not only solve problems but actively improve natural and social systems.">Desarrollo de soluciones que no solo resuelven problemas sino que mejoran activamente los sistemas naturales y sociales.</span></span>:</p>
+
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-icon">🌊</div>
+                    <div class="principle-title" data-es="Flujo Circular" data-en="Circular Flow">Flujo Circular</div>
+                    <p data-es="Todo recurso fluye en ciclos cerrados, eliminando el concepto de desperdicio" data-en="All resources flow in closed cycles, eliminating the concept of waste">Todo recurso fluye en ciclos cerrados, eliminando el concepto de desperdicio</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-icon">🌿</div>
+                    <div class="principle-title" data-es="Biomimética Aplicada" data-en="Applied Biomimicry">Biomimética Aplicada</div>
+                    <p data-es="Las soluciones emergen de patrones naturales probados por millones de años" data-en="Solutions emerge from natural patterns tested over millions of years">Las soluciones emergen de patrones naturales probados por millones de años</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-icon">🤝</div>
+                    <div class="principle-title" data-es="Interdependencia" data-en="Interdependence">Interdependencia</div>
+                    <p data-es="El éxito se mide por el bienestar del ecosistema completo" data-en="Success is measured by the wellbeing of the complete ecosystem">El éxito se mide por el bienestar del ecosistema completo</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-icon">⏳</div>
+                    <div class="principle-title" data-es="Pensamiento de Siete Generaciones" data-en="Seven Generation Thinking">Pensamiento de Siete Generaciones</div>
+                    <p data-es="Cada decisión considera su impacto hasta la séptima generación futura" data-en="Every decision considers its impact through the seventh future generation">Cada decisión considera su impacto hasta la séptima generación futura</p>
+                </div>
+            </div>
+
+            <h2 data-es="Artículo I: Los Ocho Pilares de la Gestión del Capital (Con Métricas)" data-en="Article I: The Eight Pillars of Capital Stewardship (With Metrics)">Artículo I: Los Ocho Pilares de la Gestión del Capital (Con Métricas)</h2>
+            <p data-es="Nos comprometemos a reconocer, medir y regenerar ocho formas de capital. Para cada una, proporcionamos indicadores clave de desempeño (KPIs) iniciales:" data-en="We pledge to recognize, measure, and regenerate eight forms of capital. For each, we provide initial key performance indicators (KPIs):">Nos comprometemos a reconocer, medir y regenerar ocho formas de capital. Para cada una, proporcionamos indicadores clave de desempeño (KPIs) iniciales:</p>
 
             <div class="capital-grid">
                 <div class="capital-card">
                     <h4 data-es="💰 Capital Financiero" data-en="💰 Financial Capital">💰 Capital Financiero</h4>
-                    <p><strong data-es="Confianza Sagrada:" data-en="Sacred Trust:">Confianza Sagrada:</strong> <span data-es="El dinero es energía, y lo administramos como una herramienta para la sanación sistémica en lugar de mera acumulación." data-en="Money is energy, and we steward it as a tool for systemic healing rather than mere accumulation.">El dinero es energía, y lo administramos como una herramienta para la <span class="highlight-term">sanación sistémica<span class="tooltip" data-es="Proceso de reparar y regenerar sistemas completos (económicos, sociales, ecológicos) en lugar de solo tratar síntomas superficiales." data-en="Process of repairing and regenerating complete systems (economic, social, ecological) rather than just treating surface symptoms.">Proceso de reparar y regenerar sistemas completos (económicos, sociales, ecológicos) en lugar de solo tratar síntomas superficiales.</span></span> en lugar de mera acumulación.</span></p>
+                    <p><strong data-es="Flujo Regenerativo:" data-en="Regenerative Flow:">Flujo Regenerativo:</strong> <span data-es="El dinero como energía que debe circular, no acumularse." data-en="Money as energy that must circulate, not accumulate.">El dinero como energía que debe circular, no acumularse.</span></p>
+                    <div class="metric-card">
+                        <div class="metric-icon">📊</div>
+                        <div class="metric-value">85%</div>
+                        <div class="metric-label" data-es="Reinversión en Regeneración" data-en="Reinvestment in Regeneration">Reinversión en Regeneración</div>
+                    </div>
+                    <ul style="font-size: 0.9rem; margin-top: 1rem;">
+                        <li data-es="• Ratio de reinversión regenerativa (meta: >50%)" data-en="• Regenerative reinvestment ratio (target: >50%)">• Ratio de reinversión regenerativa (meta: >50%)</li>
+                        <li data-es="• Velocidad de circulación del capital" data-en="• Capital circulation velocity">• Velocidad de circulación del capital</li>
+                        <li data-es="• ROI multi-capital (no solo financiero)" data-en="• Multi-capital ROI (not just financial)">• ROI multi-capital (no solo financiero)</li>
+                    </ul>
                 </div>
 
                 <div class="capital-card">
                     <h4 data-es="🏗️ Capital Material" data-en="🏗️ Material Capital">🏗️ Capital Material</h4>
-                    <p><strong data-es="Diseño Circular:" data-en="Circular Design:">Diseño Circular:</strong> <span data-es="Eliminamos el desperdicio diseñando para ciclos continuos de uso, reutilización y renovación dentro de los límites regenerativos." data-en="We eliminate waste by designing for continuous cycles of use, reuse, and renewal within regenerative limits.">Eliminamos el desperdicio diseñando para ciclos continuos de uso, reutilización y renovación dentro de los <span class="highlight-term">límites regenerativos<span class="tooltip" data-es="Capacidad de los ecosistemas de renovarse y mantenerse saludables mientras proporcionan recursos y servicios." data-en="Capacity of ecosystems to renew and maintain themselves healthy while providing resources and services.">Capacidad de los ecosistemas de renovarse y mantenerse saludables mientras proporcionan recursos y servicios.</span></span>.</span></p>
+                    <p><strong data-es="Circularidad Total:" data-en="Total Circularity:">Circularidad Total:</strong> <span data-es="Cero desperdicio a través del diseño regenerativo." data-en="Zero waste through regenerative design.">Cero desperdicio a través del diseño regenerativo.</span></p>
+                    <div class="metric-card">
+                        <div class="metric-icon">♻️</div>
+                        <div class="metric-value">92%</div>
+                        <div class="metric-label" data-es="Materiales Circulares" data-en="Circular Materials">Materiales Circulares</div>
+                    </div>
+                    <ul style="font-size: 0.9rem; margin-top: 1rem;">
+                        <li data-es="• % de materiales de fuentes regenerativas" data-en="• % of materials from regenerative sources">• % de materiales de fuentes regenerativas</li>
+                        <li data-es="• Índice de circularidad (entrada/salida)" data-en="• Circularity index (input/output)">• Índice de circularidad (entrada/salida)</li>
+                        <li data-es="• Vida útil del producto vs. promedio industria" data-en="• Product lifespan vs. industry average">• Vida útil del producto vs. promedio industria</li>
+                    </ul>
                 </div>
 
                 <div class="capital-card">
                     <h4 data-es="🌿 Capital Viviente" data-en="🌿 Living Capital">🌿 Capital Viviente</h4>
-                    <p><strong data-es="Custodia de la Biodiversidad:" data-en="Biodiversity Stewardship:">Custodia de la Biodiversidad:</strong> <span data-es="Protegemos y restauramos activamente la red de vida de la cual depende toda prosperidad, aplicando principios de biomimética." data-en="We actively protect and restore the web of life upon which all prosperity depends, applying principles of biomimicry.">Protegemos y restauramos activamente la red de vida de la cual depende toda prosperidad, aplicando principios de <span class="highlight-term">biomimética<span class="tooltip" data-es="Innovación sostenible inspirada en la naturaleza, aprendiendo de 3.8 mil millones de años de evolución y adaptación." data-en="Sustainable innovation inspired by nature, learning from 3.8 billion years of evolution and adaptation.">Innovación sostenible inspirada en la naturaleza, aprendiendo de 3.8 mil millones de años de evolución y adaptación.</span></span>.</span></p>
+                    <p><strong data-es="Biodiversidad Neta Positiva:" data-en="Net Positive Biodiversity:">Biodiversidad Neta Positiva:</strong> <span data-es="Cada operación aumenta la vida local." data-en="Every operation increases local life.">Cada operación aumenta la vida local.</span></p>
+                    <div class="metric-card">
+                        <div class="metric-icon">🦋</div>
+                        <div class="metric-value">+127%</div>
+                        <div class="metric-label" data-es="Aumento de Biodiversidad" data-en="Biodiversity Increase">Aumento de Biodiversidad</div>
+                    </div>
+                    <ul style="font-size: 0.9rem; margin-top: 1rem;">
+                        <li data-es="• Índice de biodiversidad local (línea base = 100)" data-en="• Local biodiversity index (baseline = 100)">• Índice de biodiversidad local (línea base = 100)</li>
+                        <li data-es="• Hectáreas regeneradas vs. utilizadas" data-en="• Hectares regenerated vs. utilized">• Hectáreas regeneradas vs. utilizadas</li>
+                        <li data-es="• Captura de carbono neta anual" data-en="• Annual net carbon capture">• Captura de carbono neta anual</li>
+                    </ul>
                 </div>
 
                 <div class="capital-card">
                     <h4 data-es="🧠 Capital Intelectual" data-en="🧠 Intellectual Capital">🧠 Capital Intelectual</h4>
-                    <p><strong data-es="Sabiduría de Código Abierto:" data-en="Open Source Wisdom:">Sabiduría de Código Abierto:</strong> <span data-es="El conocimiento pertenece a la humanidad y debe fluir libremente para el avance colectivo y la innovación regenerativa." data-en="Knowledge belongs to humanity and must flow freely for collective advancement and regenerative innovation.">El conocimiento pertenece a la humanidad y debe fluir libremente para el avance colectivo y la <span class="highlight-term">innovación regenerativa<span class="tooltip" data-es="Desarrollo de soluciones que no solo resuelven problemas sino que mejoran activamente los sistemas naturales y sociales." data-en="Development of solutions that not only solve problems but actively improve natural and social systems.">Desarrollo de soluciones que no solo resuelven problemas sino que mejoran activamente los sistemas naturales y sociales.</span></span>.</span></p>
+                    <p><strong data-es="Conocimiento Abierto:" data-en="Open Knowledge:">Conocimiento Abierto:</strong> <span data-es="La sabiduría compartida se multiplica." data-en="Shared wisdom multiplies.">La sabiduría compartida se multiplica.</span></p>
+                    <div class="metric-card">
+                        <div class="metric-icon">📚</div>
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label" data-es="Conocimiento Compartido" data-en="Knowledge Shared">Conocimiento Compartido</div>
+                    </div>
+                    <ul style="font-size: 0.9rem; margin-top: 1rem;">
+                        <li data-es="• % de IP liberada como código abierto" data-en="• % of IP released as open source">• % de IP liberada como código abierto</li>
+                        <li data-es="• Horas de educación comunitaria provistas" data-en="• Hours of community education provided">• Horas de educación comunitaria provistas</li>
+                        <li data-es="• Innovaciones co-creadas con stakeholders" data-en="• Innovations co-created with stakeholders">• Innovaciones co-creadas con stakeholders</li>
+                    </ul>
                 </div>
 
                 <div class="capital-card">
                     <h4 data-es="🛠️ Capital Experiencial" data-en="🛠️ Experiential Capital">🛠️ Capital Experiencial</h4>
-                    <p><strong data-es="Sabiduría Encarnada:" data-en="Embodied Wisdom:">Sabiduría Encarnada:</strong> <span data-es="Valoramos el conocimiento práctico, la intuición y la sabiduría que viene de la experiencia vivida, cultivando una cultura de maestría." data-en="We value practical knowledge, intuition, and wisdom that comes from lived experience, cultivating a culture of mastery.">Valoramos el conocimiento práctico, la intuición y la sabiduría que viene de la experiencia vivida, cultivando una <span class="highlight-term">cultura de maestría<span class="tooltip" data-es="Ambiente organizacional que facilita el desarrollo profundo de habilidades al servicio de propósitos significativos." data-en="Organizational environment that facilitates deep skill development in service of meaningful purposes.">Ambiente organizacional que facilita el desarrollo profundo de habilidades al servicio de propósitos significativos.</span></span>.</span></p>
+                    <p><strong data-es="Cultura de Maestría:" data-en="Culture of Mastery:">Cultura de Maestría:</strong> <span data-es="Cultivar y compartir habilidades profundas al servicio de propósitos significativos." data-en="Cultivate and share deep skills in service of meaningful purposes.">Cultivar y compartir habilidades profundas al servicio de propósitos significativos.</span></p>
+                    <div class="metric-card">
+                        <div class="metric-icon">⭐</div>
+                        <div class="metric-value">4.8/5</div>
+                        <div class="metric-label" data-es="Satisfacción de Maestría" data-en="Mastery Satisfaction">Satisfacción de Maestría</div>
+                    </div>
+                    <ul style="font-size: 0.9rem; margin-top: 1rem;">
+                        <li data-es="• Índice de desarrollo de habilidades del equipo" data-en="• Team skill development index">• Índice de desarrollo de habilidades del equipo</li>
+                        <li data-es="• Ratio mentor/aprendiz en la organización" data-en="• Mentor/apprentice ratio in organization">• Ratio mentor/aprendiz en la organización</li>
+                        <li data-es="• Retención de conocimiento tácito" data-en="• Tacit knowledge retention">• Retención de conocimiento tácito</li>
+                    </ul>
                 </div>
 
                 <div class="capital-card">
                     <h4 data-es="🤝 Capital Social" data-en="🤝 Social Capital">🤝 Capital Social</h4>
-                    <p><strong data-es="Relación Primero:" data-en="Relationship First:">Relación Primero:</strong> <span data-es="Priorizamos la confianza, la reciprocidad y la ayuda mutua, construyendo riqueza comunitaria que eleve a todos." data-en="We prioritize trust, reciprocity, and mutual aid, building community wealth that lifts everyone.">Priorizamos la confianza, la reciprocidad y la ayuda mutua, construyendo <span class="highlight-term">riqueza comunitaria<span class="tooltip" data-es="Fortalecimiento del tejido social, redes de apoyo y capacidades colectivas de las comunidades." data-en="Strengthening of social fabric, support networks, and collective capacities of communities.">Fortalecimiento del tejido social, redes de apoyo y capacidades colectivas de las comunidades.</span></span> que eleve a todos.</span></p>
+                    <p><strong data-es="Riqueza Comunitaria:" data-en="Community Wealth:">Riqueza Comunitaria:</strong> <span data-es="Las relaciones son nuestra verdadera riqueza, fortaleciendo el tejido social y las redes de apoyo." data-en="Relationships are our true wealth, strengthening social fabric and support networks.">Las relaciones son nuestra verdadera riqueza, fortaleciendo el tejido social y las redes de apoyo.</span></p>
+                    <div class="metric-card">
+                        <div class="metric-icon">🤗</div>
+                        <div class="metric-value">10,000+</div>
+                        <div class="metric-label" data-es="Conexiones de Confianza" data-en="Trust Connections">Conexiones de Confianza</div>
+                    </div>
+                    <ul style="font-size: 0.9rem; margin-top: 1rem;">
+                        <li data-es="• Índice de confianza comunitaria" data-en="• Community trust index">• Índice de confianza comunitaria</li>
+                        <li data-es="• Horas de voluntariado del equipo" data-en="• Team volunteer hours">• Horas de voluntariado del equipo</li>
+                        <li data-es="• Ratio de decisiones participativas" data-en="• Participatory decision ratio">• Ratio de decisiones participativas</li>
+                    </ul>
                 </div>
 
                 <div class="capital-card">
                     <h4 data-es="🎨 Capital Cultural" data-en="🎨 Cultural Capital">🎨 Capital Cultural</h4>
-                    <p><strong data-es="Creación de Significado:" data-en="Meaning Creation:">Creación de Significado:</strong> <span data-es="Contribuimos a narrativas que inspiran esperanza y posibilidad, honrando la custodia del patrimonio mientras co-creamos nuevas formas." data-en="We contribute to narratives that inspire hope and possibility, honoring heritage stewardship while co-creating new forms.">Contribuimos a narrativas que inspiran esperanza y posibilidad, honrando la <span class="highlight-term">custodia del patrimonio<span class="tooltip" data-es="Responsabilidad de preservar y transmitir sabiduría ancestral mientras co-creamos nuevas formas culturales." data-en="Responsibility to preserve and transmit ancestral wisdom while co-creating new cultural forms.">Responsabilidad de preservar y transmitir sabiduría ancestral mientras co-creamos nuevas formas culturales.</span></span> mientras co-creamos nuevas formas.</span></p>
+                    <p><strong data-es="Custodia del Patrimonio:" data-en="Heritage Stewardship:">Custodia del Patrimonio:</strong> <span data-es="Preservar y transmitir sabiduría ancestral mientras co-creamos nuevas formas culturales." data-en="Preserve and transmit ancestral wisdom while co-creating new cultural forms.">Preservar y transmitir sabiduría ancestral mientras co-creamos nuevas formas culturales.</span></p>
+                    <div class="metric-card">
+                        <div class="metric-icon">🎭</div>
+                        <div class="metric-value">25M</div>
+                        <div class="metric-label" data-es="Personas Inspiradas" data-en="People Inspired">Personas Inspiradas</div>
+                    </div>
+                    <ul style="font-size: 0.9rem; margin-top: 1rem;">
+                        <li data-es="• Alcance de narrativas regenerativas" data-en="• Reach of regenerative narratives">• Alcance de narrativas regenerativas</li>
+                        <li data-es="• Diversidad cultural en el equipo" data-en="• Cultural diversity in team">• Diversidad cultural en el equipo</li>
+                        <li data-es="• Proyectos de arte/cultura apoyados" data-en="• Art/culture projects supported">• Proyectos de arte/cultura apoyados</li>
+                    </ul>
                 </div>
 
                 <div class="capital-card">
                     <h4 data-es="✨ Capital Espiritual" data-en="✨ Spiritual Capital">✨ Capital Espiritual</h4>
-                    <p><strong data-es="Propósito Más Allá del Lucro:" data-en="Purpose Beyond Profit:">Propósito Más Allá del Lucro:</strong> <span data-es="Anclamos nuestro trabajo en el servicio a algo más grande, reconociendo que el comercio puede ser una práctica espiritual cuando se conduce con conciencia de interconexión." data-en="We anchor our work in service to something greater, recognizing that commerce can be a spiritual practice when conducted with awareness of interconnection.">Anclamos nuestro trabajo en el servicio a algo más grande, reconociendo que el comercio puede ser una práctica espiritual cuando se conduce con <span class="highlight-term">conciencia de interconexión<span class="tooltip" data-es="Reconocimiento profundo de que todos los seres y sistemas están fundamentalmente conectados e interdependientes." data-en="Deep recognition that all beings and systems are fundamentally connected and interdependent.">Reconocimiento profundo de que todos los seres y sistemas están fundamentalmente conectados e interdependientes.</span></span>.</span></p>
+                    <p><strong data-es="Propósito Sagrado:" data-en="Sacred Purpose:">Propósito Sagrado:</strong> <span data-es="El trabajo como práctica espiritual de servicio." data-en="Work as spiritual practice of service.">El trabajo como práctica espiritual de servicio.</span></p>
+                    <div class="metric-card">
+                        <div class="metric-icon">🙏</div>
+                        <div class="metric-value">94%</div>
+                        <div class="metric-label" data-es="Alineación con Propósito" data-en="Purpose Alignment">Alineación con Propósito</div>
+                    </div>
+                    <ul style="font-size: 0.9rem; margin-top: 1rem;">
+                        <li data-es="• Índice de propósito del equipo" data-en="• Team purpose index">• Índice de propósito del equipo</li>
+                        <li data-es="• Tiempo para reflexión/práctica espiritual" data-en="• Time for reflection/spiritual practice">• Tiempo para reflexión/práctica espiritual</li>
+                        <li data-es="• Alineación decisiones/valores declarados" data-en="• Decision/stated values alignment">• Alineación decisiones/valores declarados</li>
+                    </ul>
                 </div>
             </div>
 
-            <h2 data-es="Artículo II: Las Cuatro Dimensiones del Interés Propio Iluminado" data-en="Article II: The Four Dimensions of Enlightened Self-Interest">Artículo II: Las Cuatro Dimensiones del Interés Propio Iluminado</h2>
-            <p data-es="Abrazamos el marco del Bentoísmo, reconociendo que el verdadero interés propio abarca cuatro dimensiones esenciales:" data-en="We embrace the framework of Bentoism, recognizing that true self-interest encompasses four essential dimensions:">Abrazamos el marco del <span class="highlight-term">Bentoísmo<span class="tooltip" data-es="Teoría que expande el concepto de interés propio más allá del individualismo a corto plazo para incluir cuatro dimensiones: Yo Ahora, Yo Futuro, Nosotros Ahora, y Nosotros Futuro." data-en="Theory that expands the concept of self-interest beyond short-term individualism to include four dimensions: Now Me, Future Me, Now Us, and Future Us.">Teoría que expande el concepto de interés propio más allá del individualismo a corto plazo para incluir cuatro dimensiones: Yo Ahora, Yo Futuro, Nosotros Ahora, y Nosotros Futuro.</span></span>, reconociendo que el verdadero interés propio abarca cuatro dimensiones esenciales:</p>
+            <h2 data-es="Artículo II: Las Cuatro Dimensiones del Interés Propio Iluminado (Con Herramientas)" data-en="Article II: The Four Dimensions of Enlightened Self-Interest (With Tools)">Artículo II: Las Cuatro Dimensiones del Interés Propio Iluminado (Con Herramientas)</h2>
+            <p data-es="Aplicamos el Bentoísmo—un marco práctico para decisiones que honren todas las dimensiones del bienestar:" data-en="We apply Bentoism—a practical framework for decisions that honor all dimensions of wellbeing:">Aplicamos el <span class="highlight-term">Bentoísmo<span class="tooltip" data-es="Teoría que expande el concepto de interés propio más allá del individualismo a corto plazo para incluir cuatro dimensiones: Yo Ahora, Yo Futuro, Nosotros Ahora y Nosotros Futuro." data-en="Theory that expands the concept of self-interest beyond short-term individualism to include four dimensions: Now Me, Future Me, Now Us, and Future Us.">Teoría que expande el concepto de interés propio más allá del individualismo a corto plazo para incluir cuatro dimensiones: Yo Ahora, Yo Futuro, Nosotros Ahora y Nosotros Futuro.</span></span>—un marco práctico para decisiones que honren todas las dimensiones del bienestar:</p>
 
             <div class="bento-grid">
                 <div class="bento-quadrant">
                     <h4 data-es="🏃‍♀️ Yo Ahora" data-en="🏃‍♀️ Now Me">🏃‍♀️ Yo Ahora</h4>
-                    <p data-es="Honramos las necesidades y aspiraciones legítimas de los stakeholders presentes, asegurando compensación justa y trabajo significativo." data-en="We honor the legitimate needs and aspirations of present stakeholders, ensuring fair compensation and meaningful work.">Honramos las necesidades y aspiraciones legítimas de los stakeholders presentes, asegurando compensación justa y trabajo significativo.</p>
+                    <p data-es="Compensación justa, condiciones de trabajo saludables, realización inmediata." data-en="Fair compensation, healthy working conditions, immediate fulfillment.">Compensación justa, condiciones de trabajo saludables, realización inmediata.</p>
+                    <strong data-es="Pregunta clave:" data-en="Key question:">Pregunta clave:</strong>
+                    <p style="font-style: italic;" data-es='"¿Esto satisface las necesidades legítimas actuales?"' data-en='"Does this meet legitimate current needs?"'>"¿Esto satisface las necesidades legítimas actuales?"</p>
                 </div>
                 <div class="bento-quadrant">
                     <h4 data-es="🌱 Yo Futuro" data-en="🌱 Future Me">🌱 Yo Futuro</h4>
-                    <p data-es="Invertimos en capacidades, relaciones y activos que sirvan a nuestro florecimiento a largo plazo y construyan resistencia." data-en="We invest in capabilities, relationships, and assets that serve our long-term flourishing and build resilience.">Invertimos en capacidades, relaciones y activos que sirvan a nuestro florecimiento a largo plazo y construyan resistencia.</p>
+                    <p data-es="Desarrollo de habilidades, resiliencia financiera, crecimiento personal sostenible." data-en="Skill development, financial resilience, sustainable personal growth.">Desarrollo de habilidades, resiliencia financiera, crecimiento personal sostenible.</p>
+                    <strong data-es="Pregunta clave:" data-en="Key question:">Pregunta clave:</strong>
+                    <p style="font-style: italic;" data-es='"¿Esto construye capacidad para prosperar mañana?"' data-en='"Does this build capacity to thrive tomorrow?"'>"¿Esto construye capacidad para prosperar mañana?"</p>
                 </div>
                 <div class="bento-quadrant">
                     <h4 data-es="👥 Nosotros Ahora" data-en="👥 Now Us">👥 Nosotros Ahora</h4>
-                    <p data-es="Servimos las necesidades inmediatas de nuestras comunidades, clientes y ecosistemas, compartiendo recursos generosamente." data-en="We serve the immediate needs of our communities, customers, and ecosystems, sharing resources generously.">Servimos las necesidades inmediatas de nuestras comunidades, clientes y ecosistemas, compartiendo recursos generosamente.</p>
+                    <p data-es="Impacto comunitario inmediato, justicia social, apoyo mutuo activo." data-en="Immediate community impact, social justice, active mutual aid.">Impacto comunitario inmediato, justicia social, apoyo mutuo activo.</p>
+                    <strong data-es="Pregunta clave:" data-en="Key question:">Pregunta clave:</strong>
+                    <p style="font-style: italic;" data-es='"¿Esto eleva a nuestra comunidad hoy?"' data-en='"Does this uplift our community today?"'>"¿Esto eleva a nuestra comunidad hoy?"</p>
                 </div>
                 <div class="bento-quadrant">
                     <h4 data-es="🌍 Nosotros Futuro" data-en="🌍 Future Us">🌍 Nosotros Futuro</h4>
-                    <p data-es="Consideramos el impacto de cada decisión en la séptima generación, actuando como ancestros responsables." data-en="We consider the impact of every decision on the seventh generation, acting as responsible ancestors.">Consideramos el impacto de cada decisión en la séptima generación, actuando como ancestros responsables.</p>
+                    <p data-es="Legado regenerativo, justicia intergeneracional, sanación planetaria." data-en="Regenerative legacy, intergenerational justice, planetary healing.">Legado regenerativo, justicia intergeneracional, sanación planetaria.</p>
+                    <strong data-es="Pregunta clave:" data-en="Key question:">Pregunta clave:</strong>
+                    <p style="font-style: italic;" data-es='"¿De qué se sentirán orgullosos nuestros bisnietos?"' data-en='"What will our great-grandchildren be proud of?"'>"¿De qué se sentirán orgullosos nuestros bisnietos?"</p>
                 </div>
             </div>
 
-            <h2 data-es="Artículo III: Principios Operativos" data-en="Article III: Operating Principles">Artículo III: Principios Operativos</h2>
+            <div class="practical-box">
+                <h3><span>🎯</span> <span data-es="Herramienta de Decisión Bento" data-en="Bento Decision Tool">Herramienta de Decisión Bento</span></h3>
+                <p data-es="Para cada decisión importante, puntúa del 1-10 cómo sirve a cada cuadrante:" data-en="For each major decision, score 1-10 how it serves each quadrant:">Para cada decisión importante, puntúa del 1-10 cómo sirve a cada cuadrante:</p>
+                <ul>
+                    <li data-es="8-10 en todos = Decisión regenerativa óptima" data-en="8-10 in all = Optimal regenerative decision">8-10 en todos = Decisión regenerativa óptima</li>
+                    <li data-es="6-7 promedio = Aceptable con mejoras" data-en="6-7 average = Acceptable with improvements">6-7 promedio = Aceptable con mejoras</li>
+                    <li data-es="<5 en cualquiera = Rediseñar la propuesta" data-en="<5 in any = Redesign the proposal"><5 en cualquiera = Rediseñar la propuesta</li>
+                </ul>
+            </div>
 
-            <h3 data-es="🔄 El Imperativo Regenerativo" data-en="🔄 The Regenerative Imperative">🔄 El Imperativo Regenerativo</h3>
-            <p data-es="Cada decisión empresarial debe contribuir demostrablemente a la regeneración de al menos una forma de capital mientras no causa daño neto a ninguna otra. Cuando son necesarios compromisos, elegimos el camino que sirve al mayor bien a través del horizonte temporal más largo." data-en="Every business decision must demonstrably contribute to regenerating at least one form of capital while causing no net harm to any other. When trade-offs are necessary, we choose the path that serves the greatest good across the longest time horizon.">Cada decisión empresarial debe contribuir demostrablemente a la regeneración de al menos una forma de capital mientras no causa daño neto a ninguna otra. Cuando son necesarios compromisos, elegimos el camino que sirve al mayor bien a través del horizonte temporal más largo.</p>
+            <h2 data-es="Artículo III: Principios Operativos Prácticos" data-en="Article III: Practical Operating Principles">Artículo III: Principios Operativos Prácticos</h2>
 
-            <h3 data-es="⚖️ El Balance Multi-Capital" data-en="⚖️ The Multi-Capital Balance">⚖️ El Balance Multi-Capital</h3>
-            <p data-es="Medimos el éxito no meramente por retornos financieros, sino por nuestro impacto positivo a través de las ocho formas de capital. Publicamos Reportes Anuales de Impacto Multi-Capital que transparentemente dan cuenta de nuestra gestión." data-en="We measure success not merely by financial returns, but by our positive impact across the eight forms of capital. We publish Annual Multi-Capital Impact Reports that transparently account for our stewardship.">Medimos el éxito no meramente por retornos financieros, sino por nuestro <span class="highlight-term">impacto positivo<span class="tooltip" data-es="Contribución medible y verificable al mejoramiento de los sistemas naturales, sociales, culturales y espirituales." data-en="Measurable and verifiable contribution to improving natural, social, cultural, and spiritual systems.">Contribución medible y verificable al mejoramiento de los sistemas naturales, sociales, culturales y espirituales.</span></span> a través de las ocho formas de capital. Publicamos <span class="highlight-term">Reportes Anuales de Impacto Multi-Capital<span class="tooltip" data-es="Documentos transparentes que muestran el desempeño organizacional en las ocho formas de capital, con verificación de terceros." data-en="Transparent documents showing organizational performance across the eight forms of capital, with third-party verification.">Documentos transparentes que muestran el desempeño organizacional en las ocho formas de capital, con verificación de terceros.</span></span> que transparentemente dan cuenta de nuestra gestión.</p>
+            <h3 data-es="🔄 El Ciclo de Regeneración" data-en="🔄 The Regeneration Cycle">🔄 El Ciclo de Regeneración</h3>
+            <p data-es="Cada trimestre, evaluamos y ajustamos usando el Ciclo ARIA:" data-en="Each quarter, we assess and adjust using the ARIA Cycle:">Cada trimestre, evaluamos y ajustamos usando el Ciclo ARIA:</p>
+            <ol style="margin-left: 2rem;">
+                <li><strong data-es="Auditar:" data-en="Audit:">Auditar:</strong> <span data-es="Medir impacto en los 8 capitales" data-en="Measure impact across 8 capitals">Medir <span class="highlight-term">impacto positivo<span class="tooltip" data-es="Contribución medible y verificable a la mejora de sistemas naturales, sociales, culturales y espirituales." data-en="Measurable and verifiable contribution to improving natural, social, cultural, and spiritual systems.">Contribución medible y verificable a la mejora de sistemas naturales, sociales, culturales y espirituales.</span></span> en los 8 capitales</span></li>
+                <li><strong data-es="Reflexionar:" data-en="Reflect:">Reflexionar:</strong> <span data-es="Analizar a través del lente Bento" data-en="Analyze through Bento lens">Analizar a través del lente Bento</span></li>
+                <li><strong data-es="Innovar:" data-en="Innovate:">Innovar:</strong> <span data-es="Co-crear soluciones regenerativas" data-en="Co-create regenerative solutions">Co-crear soluciones regenerativas</span></li>
+                <li><strong data-es="Actuar:" data-en="Act:">Actuar:</strong> <span data-es="Implementar con transparencia radical" data-en="Implement with radical transparency">Implementar con transparencia radical</span></li>
+            </ol>
 
-            <h3 data-es="🧭 El Filtro del Bentoísmo" data-en="🧭 The Bentoism Filter">🧭 El Filtro del Bentoísmo</h3>
-            <p data-es='Antes de cualquier decisión importante, preguntamos: "¿Cómo sirve esto al Yo Ahora, Yo Futuro, Nosotros Ahora y Nosotros Futuro?" Las decisiones que sirven a las cuatro dimensiones reciben prioridad.' data-en='Before any major decision, we ask: "How does this serve Now Me, Future Me, Now Us, and Future Us?" Decisions that serve all four dimensions receive priority.'>Antes de cualquier decisión importante, preguntamos: "¿Cómo sirve esto al Yo Ahora, Yo Futuro, Nosotros Ahora y Nosotros Futuro?" Las decisiones que sirven a las cuatro dimensiones reciben prioridad.</p>
+            <h3 data-es="⚖️ Navegando Compromisos" data-en="⚖️ Navigating Trade-offs">⚖️ Navegando Compromisos</h3>
+            <p data-es="Cuando los capitales entren en tensión, usamos la Matriz de Resolución Regenerativa:" data-en="When capitals conflict, we use the Regenerative Resolution Matrix:">Cuando los capitales entren en tensión, usamos la Matriz de Resolución Regenerativa:</p>
+            <ol style="margin-left: 2rem;">
+                <li data-es="¿Puede rediseñarse la decisión para servir a todos los capitales?" data-en="Can the decision be redesigned to serve all capitals?">¿Puede rediseñarse la decisión para servir a todos los capitales?</li>
+                <li data-es="¿Qué capital está más agotado y necesita prioridad?" data-en="Which capital is most depleted and needs priority?">¿Qué capital está más agotado y necesita prioridad?</li>
+                <li data-es="¿Cómo podemos compensar cualquier agotamiento temporal?" data-en="How can we compensate for any temporary depletion?">¿Cómo podemos compensar cualquier agotamiento temporal?</li>
+                <li data-es="¿Qué dice la séptima generación sobre esta elección?" data-en="What does the seventh generation say about this choice?">¿Qué dice la séptima generación sobre esta elección?</li>
+            </ol>
 
-            <h2 data-es="Artículo IV: Compromiso Sagrado" data-en="Article IV: Sacred Commitment">Artículo IV: Compromiso Sagrado</h2>
-            <p data-es="Nos comprometemos a mantener esta Carta como el fundamento de nuestra empresa. Este compromiso se extiende más allá de la obligación legal hacia un pacto moral y espiritual—entre nosotros, con las comunidades que servimos, y con las generaciones aún por venir." data-en="We pledge to uphold this Charter as the foundation of our enterprise. This commitment extends beyond legal obligation to a moral and spiritual covenant—among ourselves, with the communities we serve, and with generations yet to come.">Nos comprometemos a mantener esta Carta como el fundamento de nuestra empresa. Este compromiso se extiende más allá de la obligación legal hacia un <span class="highlight-term">pacto moral y espiritual<span class="tooltip" data-es="Compromiso profundo que trasciende contratos legales, basado en valores compartidos y responsabilidad hacia el bienestar colectivo." data-en="Deep commitment that transcends legal contracts, based on shared values and responsibility toward collective wellbeing.">Compromiso profundo que trasciende contratos legales, basado en valores compartidos y responsabilidad hacia el bienestar colectivo.</span></span>—entre nosotros, con las comunidades que servimos, y con las generaciones aún por venir.</p>
+            <h3 data-es="🧭 Gobernanza Regenerativa" data-en="🧭 Regenerative Governance">🧭 Gobernanza Regenerativa</h3>
+            <p data-es="Estructuramos la toma de decisiones para honrar todas las voces:" data-en="We structure decision-making to honor all voices:">Estructuramos la toma de decisiones para honrar todas las voces:</p>
+            <ul style="margin-left: 2rem;">
+                <li data-es="Consejo Multi-Stakeholder con representación de los 8 capitales" data-en="Multi-Stakeholder Council with 8-capital representation">Consejo Multi-Stakeholder con representación de los 8 capitales</li>
+                <li data-es="Decisiones por consentimiento, no solo consenso" data-en="Decisions by consent, not just consensus">Decisiones por consentimiento, no solo consenso</li>
+                <li data-es="Voz para la naturaleza y futuras generaciones en cada reunión" data-en="Voice for nature and future generations in every meeting">Voz para la naturaleza y futuras generaciones en cada reunión</li>
+                <li data-es="Transparencia radical: todas las decisiones son públicas" data-en="Radical transparency: all decisions are public">Transparencia radical: todas las decisiones son públicas</li>
+            </ul>
+
+            <h2 data-es="Artículo IV: Caminos de Implementación" data-en="Article IV: Implementation Pathways">Artículo IV: Caminos de Implementación</h2>
+            
+            <div class="implementation-timeline">
+                <h3 data-es="🚀 Tu Viaje Regenerativo: Primeros 90 Días" data-en="🚀 Your Regenerative Journey: First 90 Days">🚀 Tu Viaje Regenerativo: Primeros 90 Días</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h4 data-es="Días 1-30: Evaluación Base" data-en="Days 1-30: Baseline Assessment">Días 1-30: Evaluación Base</h4>
+                        <p data-es="Audita tu impacto actual en los 8 capitales usando nuestras herramientas gratuitas. Identifica 3 victorias rápidas regenerativas." data-en="Audit your current impact across 8 capitals using our free tools. Identify 3 regenerative quick wins.">Audita tu impacto actual en los 8 capitales usando nuestras herramientas gratuitas. Identifica 3 victorias rápidas regenerativas.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h4 data-es="Días 31-60: Experimentos Piloto" data-en="Days 31-60: Pilot Experiments">Días 31-60: Experimentos Piloto</h4>
+                        <p data-es="Lanza 3 iniciativas pequeñas: una financiera (ej. fondo de beneficios compartidos), una ecológica (ej. proyecto de biodiversidad), una social (ej. tiempo de voluntariado pagado)." data-en="Launch 3 small initiatives: one financial (e.g. profit sharing fund), one ecological (e.g. biodiversity project), one social (e.g. paid volunteer time).">Lanza 3 iniciativas pequeñas: una financiera (ej. fondo de beneficios compartidos), una ecológica (ej. proyecto de biodiversidad), una social (ej. tiempo de voluntariado pagado).</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h4 data-es="Días 61-90: Sistemas y Cultura" data-en="Days 61-90: Systems and Culture">Días 61-90: Sistemas y Cultura</h4>
+                        <p data-es="Integra métricas multi-capital en dashboards. Entrena al equipo en toma de decisiones Bento. Celebra primeras victorias regenerativas." data-en="Integrate multi-capital metrics into dashboards. Train team in Bento decision-making. Celebrate first regenerative wins.">Integra métricas multi-capital en dashboards. Entrena al equipo en toma de decisiones Bento. Celebra primeras victorias regenerativas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practical-box">
+                <h3><span>📊</span> <span data-es="Niveles de Certificación Regenerativa" data-en="Regenerative Certification Levels">Niveles de Certificación Regenerativa</span></h3>
+                <ul>
+                    <li><strong data-es="Semilla (0-1 año):" data-en="Seed (0-1 year):">Semilla (0-1 año):</strong> <span data-es="Compromiso firmado, evaluación base completa, 3+ iniciativas lanzadas" data-en="Charter signed, baseline complete, 3+ initiatives launched">Compromiso firmado, evaluación base completa, 3+ iniciativas lanzadas</span></li>
+                    <li><strong data-es="Brote (1-2 años):" data-en="Sprout (1-2 years):">Brote (1-2 años):</strong> <span data-es="25% mejora en 4+ capitales, reporte anual publicado" data-en="25% improvement in 4+ capitals, annual report published">25% mejora en 4+ capitales, reporte anual publicado</span></li>
+                    <li><strong data-es="Florecimiento (2-5 años):" data-en="Flourishing (2-5 years):">Florecimiento (2-5 años):</strong> <span data-es="Positivo neto en todos los capitales, mentoreando otras empresas" data-en="Net positive in all capitals, mentoring other enterprises">Positivo neto en todos los capitales, mentoreando otras empresas</span></li>
+                    <li><strong data-es="Bosque (5+ años):" data-en="Forest (5+ years):">Bosque (5+ años):</strong> <span data-es="Catalizador ecosistémico, innovaciones open-source, impacto medido en generaciones" data-en="Ecosystem catalyst, open-source innovations, impact measured in generations">Catalizador ecosistémico, innovaciones open-source, impacto medido en generaciones</span></li>
+                </ul>
+            </div>
+
+            <h2 data-es="Artículo V: Herramientas y Recursos" data-en="Article V: Tools and Resources">Artículo V: Herramientas y Recursos</h2>
+            
+            <p data-es="Como signatario de la Carta, recibes acceso a:" data-en="As a Charter signatory, you receive access to:">Como signatario de la Carta, recibes acceso a:</p>
+            
+            <div class="capital-grid">
+                <div class="capital-card">
+                    <h4 data-es="🛠️ Kit de Herramientas" data-en="🛠️ Toolkit">🛠️ Kit de Herramientas</h4>
+                    <ul>
+                        <li data-es="Calculadora de 8 Capitales (Excel/Google Sheets)" data-en="8-Capital Calculator (Excel/Google Sheets)">Calculadora de 8 Capitales (Excel/Google Sheets)</li>
+                        <li data-es="Plantillas de decisión Bento" data-en="Bento decision templates">Plantillas de decisión Bento</li>
+                        <li data-es="Guías de implementación por industria" data-en="Industry implementation guides">Guías de implementación por industria</li>
+                        <li data-es="Marcos de reporte multi-capital" data-en="Multi-capital reporting frameworks">Marcos de reporte multi-capital</li>
+                    </ul>
+                </div>
+                
+                <div class="capital-card">
+                    <h4 data-es="🤝 Comunidad" data-en="🤝 Community">🤝 Comunidad</h4>
+                    <ul>
+                        <li data-es="Red global de pares regenerativos" data-en="Global regenerative peer network">Red global de pares regenerativos</li>
+                        <li data-es="Llamadas mensuales de mejores prácticas" data-en="Monthly best practices calls">Llamadas mensuales de mejores prácticas</li>
+                        <li data-es="Programa de mentoría 1:1" data-en="1:1 mentorship program">Programa de mentoría 1:1</li>
+                        <li data-es="Conferencia anual Solarpunk Business" data-en="Annual Solarpunk Business conference">Conferencia anual Solarpunk Business</li>
+                    </ul>
+                </div>
+                
+                <div class="capital-card">
+                    <h4 data-es="📚 Educación" data-en="📚 Education">📚 Educación</h4>
+                    <ul>
+                        <li data-es="Curso online: Fundamentos Regenerativos (12 semanas)" data-en="Online course: Regenerative Fundamentals (12 weeks)">Curso online: Fundamentos Regenerativos (12 semanas)</li>
+                        <li data-es="Certificación en Liderazgo Multi-Capital" data-en="Multi-Capital Leadership certification">Certificación en Liderazgo Multi-Capital</li>
+                        <li data-es="Biblioteca de casos de estudio" data-en="Case study library">Biblioteca de casos de estudio</li>
+                        <li data-es="Webinars quincenales con pioneros" data-en="Bi-weekly webinars with pioneers">Webinars quincenales con pioneros</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 data-es="Artículo VI: Compromiso Evolutivo" data-en="Article VI: Evolutionary Commitment">Artículo VI: Compromiso Evolutivo</h2>
+            
+            <p data-es="Esta Carta es un documento vivo que evoluciona con nuestra sabiduría colectiva. Nos comprometemos a:" data-en="This Charter is a living document that evolves with our collective wisdom. We commit to:">Esta Carta es un documento vivo que evoluciona con nuestra sabiduría colectiva. Nos comprometemos a:</p>
+            
+            <ul style="margin-left: 2rem;">
+                <li data-es="Actualizar anualmente basado en datos y aprendizajes de la red" data-en="Update annually based on network data and learnings">Actualizar anualmente basado en datos y aprendizajes de la red</li>
+                <li data-es="Compartir abiertamente fracasos y éxitos para aprendizaje colectivo" data-en="Openly share failures and successes for collective learning">Compartir abiertamente fracasos y éxitos para aprendizaje colectivo</li>
+                <li data-es="Co-crear innovaciones que beneficien a todo el ecosistema" data-en="Co-create innovations that benefit the entire ecosystem">Co-crear innovaciones que beneficien a todo el ecosistema</li>
+                <li data-es="Mantener la integridad mientras abrazamos la adaptación" data-en="Maintain integrity while embracing adaptation">Mantener la integridad mientras abrazamos la adaptación</li>
+            </ul>
 
             <div class="preamble">
-                <strong data-es='"Esta Carta se erige como nuestra declaración de independencia del capitalismo extractivo y nuestra declaración de interdependencia con toda la vida. Que nuestras empresas se conviertan en instrumentos de sanación, creatividad y regeneración para nuestro mundo."' data-en='"This Charter stands as our declaration of independence from extractive capitalism and our declaration of interdependence with all life. May our enterprises become instruments of healing, creativity, and regeneration for our world."'>"Esta Carta se erige como nuestra declaración de independencia del capitalismo extractivo y nuestra declaración de interdependencia con toda la vida. Que nuestras empresas se conviertan en instrumentos de sanación, creatividad y regeneración para nuestro mundo."</strong>
+                <strong data-es='"No firmamos esta Carta como un destino, sino como un comienzo. Cada día, con cada decisión, elegimos entre extracción y regeneración. Elegimos vida. Elegimos futuro. Elegimos convertirnos en ancestros de los que las generaciones venideras se sentirán orgullosas."' data-en='"We sign this Charter not as a destination, but as a beginning. Each day, with each decision, we choose between extraction and regeneration. We choose life. We choose future. We choose to become ancestors that coming generations will be proud of."'>"No firmamos esta Carta como un destino, sino como un comienzo. Cada día, con cada decisión, elegimos entre extracción y regeneración. Elegimos vida. Elegimos futuro. Elegimos convertirnos en ancestros de los que las generaciones venideras se sentirán orgullosas."</strong>
+            </div>
+
+            <div class="practical-box" style="background: linear-gradient(135deg, var(--primary-green), var(--accent-purple)); color: white;">
+                <h3 style="color: var(--accent-gold);"><span>💡</span> <span data-es="El Diferenciador Solarpunk Práctico" data-en="The Practical Solarpunk Differentiator">El Diferenciador Solarpunk Práctico</span></h3>
+                <p data-es="A diferencia de otras declaraciones idealistas, esta Carta proporciona:" data-en="Unlike other idealistic declarations, this Charter provides:">A diferencia de otras declaraciones idealistas, esta Carta proporciona:</p>
+                <ul>
+                    <li data-es="Métricas específicas y medibles para cada capital" data-en="Specific, measurable metrics for each capital">Métricas específicas y medibles para cada capital</li>
+                    <li data-es="Herramientas descargables listas para usar hoy" data-en="Downloadable tools ready to use today">Herramientas descargables listas para usar hoy</li>
+                    <li data-es="Caminos claros de implementación por etapas" data-en="Clear staged implementation pathways">Caminos claros de implementación por etapas</li>
+                    <li data-es="Red de apoyo entre pares para superar obstáculos" data-en="Peer support network to overcome obstacles">Red de apoyo entre pares para superar obstáculos</li>
+                    <li data-es="Certificación verificable con beneficios tangibles" data-en="Verifiable certification with tangible benefits">Certificación verificable con beneficios tangibles</li>
+                </ul>
+                <p style="margin-top: 1rem; font-weight: bold;" data-es="Porque el futuro regenerativo no se manifiesta con deseos—se construye con acciones prácticas, medibles y replicables." data-en="Because the regenerative future isn't wished into being—it's built through practical, measurable, replicable actions.">Porque el futuro regenerativo no se manifiesta con deseos—se construye con acciones prácticas, medibles y replicables.</p>
             </div>
         </div>
 
         <section class="signature-section" id="firmar">
-            <h2 data-es="Únete al Movimiento" data-en="Join the Movement">Únete al Movimiento</h2>
+            <h2 data-es="Únete al Movimiento Regenerativo" data-en="Join the Regenerative Movement">Únete al Movimiento Regenerativo</h2>
             <div class="supporters-count">
-                <span data-es="🌱 Ya somos 2,847 organizaciones comprometidas" data-en="🌱 We are already 2,847 committed organizations">🌱 Ya somos 2,847 organizaciones comprometidas</span>
+                <span data-es="🌱 Ya somos 2,847 organizaciones construyendo el futuro" data-en="🌱 We are already 2,847 organizations building the future">🌱 Ya somos 2,847 organizaciones construyendo el futuro</span>
             </div>
-            <p data-es="Al firmar esta Carta, tu organización se une a un movimiento global de empresas regenerativas comprometidas con la transformación del sistema económico." data-en="By signing this Charter, your organization joins a global movement of regenerative enterprises committed to transforming the economic system.">Al firmar esta Carta, tu organización se une a un movimiento global de empresas regenerativas comprometidas con la transformación del sistema económico.</p>
+            <p data-es="Al firmar esta Carta, tu organización no solo hace una declaración—se une a una red práctica de apoyo, herramientas y responsabilidad mutua." data-en="By signing this Charter, your organization doesn't just make a statement—it joins a practical network of support, tools, and mutual accountability.">Al firmar esta Carta, tu organización no solo hace una declaración—se une a una red práctica de apoyo, herramientas y responsabilidad mutua.</p>
             
             <form class="signature-form">
                 <input type="text" data-es="Nombre de la Organización" data-en="Organization Name" placeholder="Nombre de la Organización" required>
                 <input type="text" data-es="Nombre del Representante" data-en="Representative Name" placeholder="Nombre del Representante" required>
                 <input type="email" data-es="Email de Contacto" data-en="Contact Email" placeholder="Email de Contacto" required>
                 <input type="text" data-es="País/Región" data-en="Country/Region" placeholder="País/Región" required>
+                <select data-es="Tamaño de Organización" data-en="Organization Size" required style="padding: 1rem 1.25rem; border: 2px solid var(--border-color); border-radius: 8px; font-size: 1rem; background: var(--bg-primary); color: var(--text-primary); transition: all 0.2s ease;">
+                    <option value="" data-es="Selecciona tamaño" data-en="Select size">Selecciona tamaño</option>
+                    <option value="1-10" data-es="1-10 empleados" data-en="1-10 employees">1-10 empleados</option>
+                    <option value="11-50" data-es="11-50 empleados" data-en="11-50 employees">11-50 empleados</option>
+                    <option value="51-200" data-es="51-200 empleados" data-en="51-200 employees">51-200 empleados</option>
+                    <option value="200+" data-es="200+ empleados" data-en="200+ employees">200+ empleados</option>
+                </select>
                 <button type="submit" class="btn btn-primary">
                     <span>✍️</span>
-                    <span data-es="Firmar la Carta" data-en="Sign the Charter">Firmar la Carta</span>
+                    <span data-es="Firmar la Carta y Acceder a Herramientas" data-en="Sign the Charter and Access Tools">Firmar la Carta y Acceder a Herramientas</span>
                 </button>
             </form>
             
-            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;" data-es="Al firmar, te comprometes a implementar los principios de esta Carta y a reportar anualmente tu progreso en las ocho formas de capital." data-en="By signing, you commit to implementing the principles of this Charter and reporting annually on your progress across the eight forms of capital.">
-                Al firmar, te comprometes a implementar los principios de esta Carta y a reportar anualmente tu progreso en las ocho formas de capital.
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;" data-es="Al firmar, recibirás inmediatamente acceso al kit de herramientas completo y te unirás a nuestra próxima llamada de incorporación." data-en="Upon signing, you'll immediately receive access to the complete toolkit and join our next onboarding call.">
+                Al firmar, recibirás inmediatamente acceso al kit de herramientas completo y te unirás a nuestra próxima llamada de incorporación.
             </p>
         </section>
     </main>
 
     <footer class="footer">
         <div class="container">
-            <p data-es="Una iniciativa del Movimiento Solarpunk Global" data-en="An initiative of the Global Solarpunk Movement">Una iniciativa del Movimiento Solarpunk Global</p>
-            <p data-es="En colaboración con organizaciones regenerativas de todo el mundo" data-en="In collaboration with regenerative organizations worldwide">En colaboración con organizaciones regenerativas de todo el mundo</p>
+            <p data-es="Una iniciativa del Movimiento Solarpunk Práctico Global" data-en="An initiative of the Global Practical Solarpunk Movement">Una iniciativa del Movimiento Solarpunk Práctico Global</p>
+            <p data-es="Construyendo el futuro regenerativo, una decisión práctica a la vez" data-en="Building the regenerative future, one practical decision at a time">Construyendo el futuro regenerativo, una decisión práctica a la vez</p>
             <div class="movement-logos" style="margin-top: 1rem;">
                 <div class="logo-placeholder">🌱</div>
                 <div class="logo-placeholder">🔄</div>
@@ -920,8 +1404,8 @@
                 <div class="logo-placeholder">⚡</div>
                 <div class="logo-placeholder">🌿</div>
             </div>
-            <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;" data-es="© 2025 Movimiento Solarpunk Global. Esta Carta es un documento abierto para el bien común." data-en="© 2025 Global Solarpunk Movement. This Charter is an open document for the common good.">
-                © 2025 Movimiento Solarpunk Global. Esta Carta es un documento abierto para el bien común.
+            <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;" data-es="© 2025 Movimiento Solarpunk Práctico. Esta Carta es código abierto para el bien común." data-en="© 2025 Practical Solarpunk Movement. This Charter is open source for the common good.">
+                © 2025 Movimiento Solarpunk Práctico. Esta Carta es código abierto para el bien común.
             </p>
         </div>
     </footer>
@@ -944,8 +1428,22 @@
             document.querySelectorAll('[data-es][data-en]').forEach(element => {
                 if (element.tagName === 'INPUT') {
                     element.placeholder = element.getAttribute(`data-${currentLang}`);
+                } else if (element.tagName === 'SELECT') {
+                    // Handle select options
+                    element.querySelectorAll('option').forEach(option => {
+                        if (option.hasAttribute('data-es') && option.hasAttribute('data-en')) {
+                            option.textContent = option.getAttribute(`data-${currentLang}`);
+                        }
+                    });
                 } else {
                     element.textContent = element.getAttribute(`data-${currentLang}`);
+                }
+            });
+            
+            // Update tooltips
+            document.querySelectorAll('.tooltip').forEach(tooltip => {
+                if (tooltip.hasAttribute('data-es') && tooltip.hasAttribute('data-en')) {
+                    tooltip.textContent = tooltip.getAttribute(`data-${currentLang}`);
                 }
             });
             
@@ -1026,6 +1524,7 @@
                     
                     setTimeout(() => {
                         buttonText.textContent = currentLang === 'es' ? '✅ ¡Bienvenido al Movimiento!' : '✅ Welcome to the Movement!';
+                        createConfetti();
                         setTimeout(() => {
                             buttonText.textContent = originalText;
                             button.disabled = false;
@@ -1035,8 +1534,8 @@
                             const counter = document.querySelector('.supporters-count span');
                             const currentCount = parseInt(counter.textContent.match(/\d+/)[0]);
                             const newCountText = currentLang === 'es' 
-                                ? `🌱 Ya somos ${(currentCount + 1).toLocaleString()} organizaciones comprometidas`
-                                : `🌱 We are already ${(currentCount + 1).toLocaleString()} committed organizations`;
+                                ? `🌱 Ya somos ${(currentCount + 1).toLocaleString()} organizaciones construyendo el futuro`
+                                : `🌱 We are already ${(currentCount + 1).toLocaleString()} organizations building the future`;
                             counter.textContent = newCountText;
                         }, 3000);
                     }, 2000);
@@ -1060,6 +1559,14 @@
 
             // Observe all capital cards
             document.querySelectorAll('.capital-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            // Observe principle cards
+            document.querySelectorAll('.principle-card').forEach((card, index) => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(30px)';
                 card.style.transition = `all 0.6s ease ${index * 0.1}s`;
@@ -1227,13 +1734,15 @@
                     border-top: 1px solid rgba(255, 255, 255, 0.1);
                 }
                 
-                [data-theme="dark"] .signature-form input {
+                [data-theme="dark"] .signature-form input,
+                [data-theme="dark"] .signature-form select {
                     background: #2a2a2a;
                     color: #ffffff;
                     border: 1px solid rgba(255, 255, 255, 0.2);
                 }
                 
-                [data-theme="dark"] .signature-form input:focus {
+                [data-theme="dark"] .signature-form input:focus,
+                [data-theme="dark"] .signature-form select:focus {
                     outline: none;
                     border-color: var(--accent-gold);
                     box-shadow: 0 0 0 2px rgba(255, 209, 102, 0.2);
@@ -1319,8 +1828,8 @@
                     const currentCount = parseInt(counter.textContent.match(/\d+/)[0]);
                     const newCount = currentCount + Math.floor(Math.random() * 3) + 1;
                     const newCountText = currentLang === 'es' 
-                        ? `🌱 Ya somos ${newCount.toLocaleString()} organizaciones comprometidas`
-                        : `🌱 We are already ${newCount.toLocaleString()} committed organizations`;
+                        ? `🌱 Ya somos ${newCount.toLocaleString()} organizaciones construyendo el futuro`
+                        : `🌱 We are already ${newCount.toLocaleString()} organizations building the future`;
                     counter.textContent = newCountText;
                 }
             }, 30000); // Every 30 seconds
