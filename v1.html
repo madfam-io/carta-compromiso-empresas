@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Carta para la Empresa Regenerativa | Movimiento Solarpunk</title>
+    <style>
+        :root {
+            /* Brand Colors - Light Mode */
+            --brand-forest: #1b5e20;      /* Forest Green - WCAG AAA on white */
+            --brand-solar: #f9a825;       /* Solar Yellow - needs dark text */
+            --brand-purple: #4a148c;      /* Royal Purple - WCAG AAA on white */
+            
+            /* Functional Colors - Light Mode */
+            --primary-green: #1b5e20;     /* Forest green for headers */
+            --secondary-green: #2e7d32;   /* Lighter forest for subheaders */
+            --accent-gold: #f57f17;       /* Darker solar yellow for better contrast */
+            --accent-purple: #6a1b9a;     /* Lighter purple for accents */
+            --text-primary: #1a1a1a;      /* Near black for body text (AAA) */
+            --text-secondary: #424242;    /* Dark gray for secondary text */
+            --text-light: #ffffff;        /* White text on dark backgrounds */
+            --bg-primary: #ffffff;        /* Pure white background */
+            --bg-secondary: #fafafa;      /* Slight off-white */
+            --bg-tertiary: #f5f5f5;       /* Light gray */
+            --card-bg: #ffffff;           /* White cards */
+            --border-color: #e0e0e0;      /* Light gray borders */
+            --overlay: rgba(27, 94, 32, 0.95); /* Forest overlay */
+            --hero-bg: linear-gradient(135deg, #1b5e20 0%, #4a148c 100%);
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+            
+            /* Interactive States */
+            --hover-overlay: rgba(0,0,0,0.04);
+            --focus-ring: rgba(27, 94, 32, 0.4);
+        }
+
+        [data-theme="dark"] {
+            /* Brand Colors - Dark Mode */
+            --brand-forest: #66bb6a;      /* Light forest green for dark bg */
+            --brand-solar: #ffeb3b;       /* Bright solar yellow */
+            --brand-purple: #ba68c8;      /* Light purple for dark bg */
+            
+            /* Functional Colors - Dark Mode */
+            --primary-green: #81c784;     /* Light green (AAA on #1a1a1a) */
+            --secondary-green: #a5d6a7;   /* Very light green */
+            --accent-gold: #fff176;       /* Light yellow (AAA contrast) */
+            --accent-purple: #ce93d8;     /* Light purple accent */
+            --text-primary: #ffffff;      /* Pure white for primary text */
+            --text-secondary: #e0e0e0;    /* Light gray for secondary */
+            --text-light: #1a1a1a;        /* Dark text on light backgrounds */
+            --bg-primary: #121212;        /* Material dark background */
+            --bg-secondary: #1e1e1e;      /* Slightly lighter */
+            --bg-tertiary: #2a2a2a;       /* Card backgrounds */
+            --card-bg: #1e1e1e;           /* Dark cards */
+            --border-color: rgba(255,255,255,0.12); /* Subtle borders */
+            --overlay: rgba(0, 0, 0, 0.85);
+            --hero-bg: linear-gradient(135deg, #0d0d0d 0%, #1a0033 100%);
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+            
+            /* Interactive States */
+            --hover-overlay: rgba(255,255,255,0.08);
+            --focus-ring: rgba(255, 241, 118, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: 18px; /* Larger base font for better readability */
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            min-height: 100vh;
+            transition: all 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--overlay), rgba(74, 124, 89, 0.8)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="leaves" patternUnits="userSpaceOnUse" width="60" height="60"><circle cx="30" cy="30" r="8" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23leaves)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-light);
+            padding: 4rem 0 10rem 0;
+            text-align: center;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .movement-badge {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--accent-gold), var(--brand-solar));
+            color: var(--bg-primary);
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: var(--shadow-md);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="dark"] .movement-badge {
+            background: linear-gradient(135deg, var(--accent-gold), var(--brand-solar));
+            color: var(--bg-primary);
+        }
+
+        .movement-badge::before {
+            content: "🌱";
+            margin-right: 0.5rem;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        [data-theme="dark"] h1 {
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        }
+
+        .subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            padding-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:focus {
+            outline: 3px solid var(--focus-ring);
+            outline-offset: 2px;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: var(--brand-solar);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid currentColor;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        [data-theme="dark"] .btn-secondary {
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        [data-theme="dark"] .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+        }
+
+        .main-content {
+            background: var(--bg-primary);
+            margin: 0 auto;
+            border-radius: 24px 24px 0 0;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 10;
+            margin-top: -6rem;
+            border: 1px solid var(--border-color);
+        }
+
+        [data-theme="dark"] .main-content {
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.8);
+        }
+
+        .content-section {
+            padding: 3rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: var(--primary-green);
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            margin: 3rem 0 1.5rem;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            color: var(--secondary-green);
+            font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: var(--accent-purple);
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            margin: 1.5rem 0 0.75rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .highlight-term {
+            position: relative;
+            padding: 0.1em 0.3em;
+            border-radius: 4px;
+            cursor: help;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-decoration: underline;
+            text-decoration-color: var(--accent-gold);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+        }
+
+        .highlight-term:hover {
+            background: rgba(245, 127, 23, 0.15);
+            text-decoration: none;
+        }
+
+        /* Dark mode highlight terms */
+        [data-theme="dark"] .highlight-term {
+            color: var(--text-primary);
+            text-decoration-color: var(--accent-gold);
+            background: rgba(255, 241, 118, 0.1);
+        }
+
+        [data-theme="dark"] .highlight-term:hover {
+            background: rgba(255, 241, 118, 0.2);
+            text-decoration: none;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: #ffffff;
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            max-width: 320px;
+            width: max-content;
+            font-size: 0.9rem;
+            line-height: 1.618;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            bottom: calc(100% + 15px);
+            left: 50%;
+            transform: translateX(-50%) translateY(15px);
+            border: 1px solid rgba(244, 167, 52, 0.3);
+        }
+
+        [data-theme="dark"] .tooltip {
+            background: linear-gradient(135deg, #ffd700, #ffa500);
+            color: #1a1a1a;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 10px solid transparent;
+            border-top-color: #34495e;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+        }
+
+        [data-theme="dark"] .tooltip::after {
+            border-top-color: #ffa500;
+        }
+
+        .highlight-term:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .preamble {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--brand-purple), var(--brand-forest));
+            color: var(--text-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+            font-size: 1.125rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        .preamble strong {
+            font-weight: 700;
+            display: block;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .preamble::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        [data-theme="dark"] .preamble {
+            background: linear-gradient(135deg, var(--accent-purple), var(--primary-green));
+        }
+
+        .capital-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .capital-card {
+            background: var(--card-bg);
+            border-left: 4px solid var(--secondary-green);
+            padding: 1.75rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .capital-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .capital-card:focus-within {
+            outline: 3px solid var(--focus-ring);
+            outline-offset: 2px;
+        }
+
+        [data-theme="dark"] .capital-card {
+            background: var(--bg-tertiary);
+            border-left-color: var(--accent-gold);
+        }
+
+        [data-theme="dark"] .capital-card h4 {
+            color: var(--accent-gold);
+        }
+
+        [data-theme="dark"] .capital-card strong {
+            color: var(--secondary-green);
+        }
+
+        [data-theme="dark"] .capital-card p {
+            color: var(--text-secondary);
+        }
+
+        .capital-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+            background: var(--primary-green);
+            padding: 2rem;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        [data-theme="dark"] .bento-grid {
+            background: #1a1a1a;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bento-quadrant {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .bento-quadrant:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+
+        [data-theme="dark"] .bento-quadrant {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .bento-quadrant:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255, 209, 102, 0.3);
+        }
+
+        [data-theme="dark"] .bento-quadrant p {
+            color: #d0d0d0;
+        }
+
+        .bento-quadrant h4 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .signature-section {
+            background: var(--primary-green);
+            color: #ffffff;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .signature-section h2 {
+            color: #ffffff;
+            margin-bottom: 2rem;
+        }
+
+        .signature-section p {
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.8;
+        }
+
+        [data-theme="dark"] .signature-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        [data-theme="dark"] .signature-section h2 {
+            color: var(--accent-gold);
+        }
+
+        [data-theme="dark"] .signature-section p {
+            color: var(--text-secondary);
+        }
+
+        .signature-form {
+            max-width: 500px;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .signature-form input {
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .signature-form input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px var(--focus-ring);
+        }
+
+        [data-theme="dark"] .signature-form input {
+            background: var(--bg-tertiary);
+            border-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .signature-form input::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+
+        .supporters-count {
+            background: var(--accent-gold);
+            color: var(--text-dark);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: bold;
+            margin: 2rem auto;
+            display: inline-block;
+        }
+
+        .footer {
+            background: var(--text-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        [data-theme="dark"] .main-content {
+            background: #0f0f0f;
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        [data-theme="dark"] .content-section {
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] .content-section p {
+            color: #d0d0d0;
+            line-height: 1.8;
+        }
+
+        [data-theme="dark"] h2 {
+            color: #81c995;
+            font-weight: 600;
+        }
+
+        [data-theme="dark"] h3 {
+            color: #a8d5ba;
+            font-weight: 600;
+        }
+
+        [data-theme="dark"] h4 {
+            color: #ffd166;
+        }
+
+        [data-theme="dark"] .highlight-term {
+            background: linear-gradient(120deg, rgba(255, 209, 102, 0.3) 0%, rgba(255, 209, 102, 0.3) 100%);
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        [data-theme="dark"] .highlight-term:hover {
+            background-size: 100% 100%;
+            background: rgba(255, 209, 102, 0.2);
+            color: #ffd166;
+        }
+
+        .movement-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--secondary-green), var(--accent-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-placeholder:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .hero-section {
+                padding: 3rem 0 8rem 0;
+                min-height: 90vh;
+            }
+            
+            .scroll-indicator {
+                bottom: 4rem;
+            }
+            
+            .controls-bar {
+                top: 1rem;
+                right: 1rem;
+                flex-direction: column;
+            }
+            
+            .toggle-btn {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .tooltip {
+                max-width: 280px;
+                font-size: 0.85rem;
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 6rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-light);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            z-index: 5;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .controls-bar {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .toggle-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .toggle-btn.active {
+            background: var(--accent-gold);
+            color: var(--text-dark);
+            border-color: var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="controls-bar">
+            <button class="toggle-btn" id="langToggle">
+                <span>🌐</span>
+                <span id="langText">English</span>
+            </button>
+            <button class="toggle-btn" id="themeToggle">
+                <span id="themeIcon">🌙</span>
+                <span id="themeText">Oscuro</span>
+            </button>
+        </div>
+        
+        <div class="container">
+            <div class="movement-badge" data-es="Movimiento Solarpunk Global" data-en="Global Solarpunk Movement">Movimiento Solarpunk Global</div>
+            <h1 data-es="La Carta para la Empresa Regenerativa" data-en="The Charter for Regenerative Enterprise">La Carta para la Empresa Regenerativa</h1>
+            <p class="subtitle" data-es="Una Declaración Multi-Capital para la Transformación Organizacional" data-en="A Multi-Capital Declaration for Organizational Transformation">Una Declaración Multi-Capital para la Transformación Organizacional</p>
+            
+            <div class="movement-logos">
+                <div class="logo-placeholder">🌱</div>
+                <div class="logo-placeholder">🔄</div>
+                <div class="logo-placeholder">🌍</div>
+                <div class="logo-placeholder">⚡</div>
+                <div class="logo-placeholder">🌿</div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#carta" class="btn btn-primary">
+                    <span>📜</span>
+                    <span data-es="Leer la Carta" data-en="Read the Charter">Leer la Carta</span>
+                </a>
+                <a href="#firmar" class="btn btn-secondary">
+                    <span>✍️</span>
+                    <span data-es="Unirse al Movimiento" data-en="Join the Movement">Unirse al Movimiento</span>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <main class="main-content">
+        <div class="content-section" id="carta">
+            <div class="preamble">
+                <strong data-es='"Sostenemos estas verdades como evidentes por sí mismas: que todas las empresas existen dentro de redes interconectadas de capital, que la verdadera prosperidad emerge de regenerar en lugar de agotar estos capitales, y que nuestro interés propio se extiende mucho más allá de las fronteras inmediatas del lucro y el trimestre."' data-en='"We hold these truths to be self-evident: that all enterprises exist within interconnected webs of capital, that true prosperity emerges from regenerating rather than depleting these capitals, and that our self-interest extends far beyond the immediate boundaries of profit and quarter."'>"Sostenemos estas verdades como evidentes por sí mismas: que todas las empresas existen dentro de redes interconectadas de capital, que la verdadera prosperidad emerge de regenerar en lugar de agotar estos capitales, y que nuestro interés propio se extiende mucho más allá de las fronteras inmediatas del lucro y el trimestre."</strong>
+            </div>
+
+            <h2 data-es="Preámbulo" data-en="Preamble">Preámbulo</h2>
+            <p data-es='Nosotros, como guardianes de la empresa en el siglo XXI, reconocemos que la era del capitalismo extractivo ha alcanzado sus límites naturales. Los límites planetarios claman, los fundamentos sociales se desmoronan, y el tejido mismo de la civilización se tensa bajo el peso del pensamiento a corto plazo.' data-en='We, as stewards of enterprise in the 21st century, recognize that the era of extractive capitalism has reached its natural limits. Planetary boundaries cry out, social foundations crumble, and the very fabric of civilization strains under the weight of short-term thinking.'>Nosotros, como guardianes de la empresa en el siglo XXI, reconocemos que la era del <span class="highlight-term">capitalismo extractivo<span class="tooltip" data-es="Sistema económico que agota recursos naturales y sociales para maximizar ganancias a corto plazo, sin considerar la regeneración o sostenibilidad a largo plazo." data-en="Economic system that depletes natural and social resources to maximize short-term profits, without considering long-term regeneration or sustainability.">Sistema económico que agota recursos naturales y sociales para maximizar ganancias a corto plazo, sin considerar la regeneración o sostenibilidad a largo plazo.</span></span> ha alcanzado sus límites naturales. Los <span class="highlight-term">límites planetarios<span class="tooltip" data-es="Nueve procesos del sistema terrestre que regulan la estabilidad y resistencia del planeta: cambio climático, pérdida de biodiversidad, ciclos biogeoquímicos, etc." data-en="Nine Earth system processes that regulate the planet's stability and resilience: climate change, biodiversity loss, biogeochemical cycles, etc.">Nueve procesos del sistema terrestre que regulan la estabilidad y resistencia del planeta: cambio climático, pérdida de biodiversidad, ciclos biogeoquímicos, etc.</span></span> claman, los fundamentos sociales se desmoronan, y el tejido mismo de la civilización se tensa bajo el peso del pensamiento a corto plazo.</p>
+
+            <p data-es='Esta Carta establece los principios fundamentales para la Empresa Regenerativa—organizaciones que operan dentro del espacio seguro de la dona multi-capital mientras honran el espectro completo del interés propio iluminado.' data-en='This Charter establishes the fundamental principles for Regenerative Enterprise—organizations that operate within the safe space of the multi-capital doughnut while honoring the full spectrum of enlightened self-interest.'>Esta Carta establece los principios fundamentales para la <span class="highlight-term">Empresa Regenerativa<span class="tooltip" data-es="Organizaciones que operan para regenerar los sistemas naturales y sociales, creando valor para todos los stakeholders mientras respetan los límites planetarios." data-en="Organizations that operate to regenerate natural and social systems, creating value for all stakeholders while respecting planetary boundaries.">Organizaciones que operan para regenerar los sistemas naturales y sociales, creando valor para todos los stakeholders mientras respetan los límites planetarios.</span></span>—organizaciones que operan dentro del espacio seguro de la <span class="highlight-term">dona multi-capital<span class="tooltip" data-es="Modelo económico que combina límites planetarios con fundamentos sociales, expandido para incluir ocho formas diferentes de capital." data-en="Economic model that combines planetary boundaries with social foundations, expanded to include eight different forms of capital.">Modelo económico que combina límites planetarios con fundamentos sociales, expandido para incluir ocho formas diferentes de capital.</span></span> mientras honran el espectro completo del interés propio iluminado.</p>
+
+            <h2 data-es="Artículo I: Los Ocho Pilares de la Gestión del Capital" data-en="Article I: The Eight Pillars of Capital Stewardship">Artículo I: Los Ocho Pilares de la Gestión del Capital</h2>
+            <p data-es="Nos comprometemos a reconocer, medir y regenerar ocho formas de capital como el fundamento de todas las decisiones empresariales:" data-en="We pledge to recognize, measure, and regenerate eight forms of capital as the foundation of all enterprise decisions:">Nos comprometemos a reconocer, medir y regenerar ocho formas de capital como el fundamento de todas las decisiones empresariales:</p>
+
+            <div class="capital-grid">
+                <div class="capital-card">
+                    <h4 data-es="💰 Capital Financiero" data-en="💰 Financial Capital">💰 Capital Financiero</h4>
+                    <p><strong data-es="Confianza Sagrada:" data-en="Sacred Trust:">Confianza Sagrada:</strong> <span data-es="El dinero es energía, y lo administramos como una herramienta para la sanación sistémica en lugar de mera acumulación." data-en="Money is energy, and we steward it as a tool for systemic healing rather than mere accumulation.">El dinero es energía, y lo administramos como una herramienta para la <span class="highlight-term">sanación sistémica<span class="tooltip" data-es="Proceso de reparar y regenerar sistemas completos (económicos, sociales, ecológicos) en lugar de solo tratar síntomas superficiales." data-en="Process of repairing and regenerating complete systems (economic, social, ecological) rather than just treating surface symptoms.">Proceso de reparar y regenerar sistemas completos (económicos, sociales, ecológicos) en lugar de solo tratar síntomas superficiales.</span></span> en lugar de mera acumulación.</span></p>
+                </div>
+
+                <div class="capital-card">
+                    <h4 data-es="🏗️ Capital Material" data-en="🏗️ Material Capital">🏗️ Capital Material</h4>
+                    <p><strong data-es="Diseño Circular:" data-en="Circular Design:">Diseño Circular:</strong> <span data-es="Eliminamos el desperdicio diseñando para ciclos continuos de uso, reutilización y renovación dentro de los límites regenerativos." data-en="We eliminate waste by designing for continuous cycles of use, reuse, and renewal within regenerative limits.">Eliminamos el desperdicio diseñando para ciclos continuos de uso, reutilización y renovación dentro de los <span class="highlight-term">límites regenerativos<span class="tooltip" data-es="Capacidad de los ecosistemas de renovarse y mantenerse saludables mientras proporcionan recursos y servicios." data-en="Capacity of ecosystems to renew and maintain themselves healthy while providing resources and services.">Capacidad de los ecosistemas de renovarse y mantenerse saludables mientras proporcionan recursos y servicios.</span></span>.</span></p>
+                </div>
+
+                <div class="capital-card">
+                    <h4 data-es="🌿 Capital Viviente" data-en="🌿 Living Capital">🌿 Capital Viviente</h4>
+                    <p><strong data-es="Custodia de la Biodiversidad:" data-en="Biodiversity Stewardship:">Custodia de la Biodiversidad:</strong> <span data-es="Protegemos y restauramos activamente la red de vida de la cual depende toda prosperidad, aplicando principios de biomimética." data-en="We actively protect and restore the web of life upon which all prosperity depends, applying principles of biomimicry.">Protegemos y restauramos activamente la red de vida de la cual depende toda prosperidad, aplicando principios de <span class="highlight-term">biomimética<span class="tooltip" data-es="Innovación sostenible inspirada en la naturaleza, aprendiendo de 3.8 mil millones de años de evolución y adaptación." data-en="Sustainable innovation inspired by nature, learning from 3.8 billion years of evolution and adaptation.">Innovación sostenible inspirada en la naturaleza, aprendiendo de 3.8 mil millones de años de evolución y adaptación.</span></span>.</span></p>
+                </div>
+
+                <div class="capital-card">
+                    <h4 data-es="🧠 Capital Intelectual" data-en="🧠 Intellectual Capital">🧠 Capital Intelectual</h4>
+                    <p><strong data-es="Sabiduría de Código Abierto:" data-en="Open Source Wisdom:">Sabiduría de Código Abierto:</strong> <span data-es="El conocimiento pertenece a la humanidad y debe fluir libremente para el avance colectivo y la innovación regenerativa." data-en="Knowledge belongs to humanity and must flow freely for collective advancement and regenerative innovation.">El conocimiento pertenece a la humanidad y debe fluir libremente para el avance colectivo y la <span class="highlight-term">innovación regenerativa<span class="tooltip" data-es="Desarrollo de soluciones que no solo resuelven problemas sino que mejoran activamente los sistemas naturales y sociales." data-en="Development of solutions that not only solve problems but actively improve natural and social systems.">Desarrollo de soluciones que no solo resuelven problemas sino que mejoran activamente los sistemas naturales y sociales.</span></span>.</span></p>
+                </div>
+
+                <div class="capital-card">
+                    <h4 data-es="🛠️ Capital Experiencial" data-en="🛠️ Experiential Capital">🛠️ Capital Experiencial</h4>
+                    <p><strong data-es="Sabiduría Encarnada:" data-en="Embodied Wisdom:">Sabiduría Encarnada:</strong> <span data-es="Valoramos el conocimiento práctico, la intuición y la sabiduría que viene de la experiencia vivida, cultivando una cultura de maestría." data-en="We value practical knowledge, intuition, and wisdom that comes from lived experience, cultivating a culture of mastery.">Valoramos el conocimiento práctico, la intuición y la sabiduría que viene de la experiencia vivida, cultivando una <span class="highlight-term">cultura de maestría<span class="tooltip" data-es="Ambiente organizacional que facilita el desarrollo profundo de habilidades al servicio de propósitos significativos." data-en="Organizational environment that facilitates deep skill development in service of meaningful purposes.">Ambiente organizacional que facilita el desarrollo profundo de habilidades al servicio de propósitos significativos.</span></span>.</span></p>
+                </div>
+
+                <div class="capital-card">
+                    <h4 data-es="🤝 Capital Social" data-en="🤝 Social Capital">🤝 Capital Social</h4>
+                    <p><strong data-es="Relación Primero:" data-en="Relationship First:">Relación Primero:</strong> <span data-es="Priorizamos la confianza, la reciprocidad y la ayuda mutua, construyendo riqueza comunitaria que eleve a todos." data-en="We prioritize trust, reciprocity, and mutual aid, building community wealth that lifts everyone.">Priorizamos la confianza, la reciprocidad y la ayuda mutua, construyendo <span class="highlight-term">riqueza comunitaria<span class="tooltip" data-es="Fortalecimiento del tejido social, redes de apoyo y capacidades colectivas de las comunidades." data-en="Strengthening of social fabric, support networks, and collective capacities of communities.">Fortalecimiento del tejido social, redes de apoyo y capacidades colectivas de las comunidades.</span></span> que eleve a todos.</span></p>
+                </div>
+
+                <div class="capital-card">
+                    <h4 data-es="🎨 Capital Cultural" data-en="🎨 Cultural Capital">🎨 Capital Cultural</h4>
+                    <p><strong data-es="Creación de Significado:" data-en="Meaning Creation:">Creación de Significado:</strong> <span data-es="Contribuimos a narrativas que inspiran esperanza y posibilidad, honrando la custodia del patrimonio mientras co-creamos nuevas formas." data-en="We contribute to narratives that inspire hope and possibility, honoring heritage stewardship while co-creating new forms.">Contribuimos a narrativas que inspiran esperanza y posibilidad, honrando la <span class="highlight-term">custodia del patrimonio<span class="tooltip" data-es="Responsabilidad de preservar y transmitir sabiduría ancestral mientras co-creamos nuevas formas culturales." data-en="Responsibility to preserve and transmit ancestral wisdom while co-creating new cultural forms.">Responsabilidad de preservar y transmitir sabiduría ancestral mientras co-creamos nuevas formas culturales.</span></span> mientras co-creamos nuevas formas.</span></p>
+                </div>
+
+                <div class="capital-card">
+                    <h4 data-es="✨ Capital Espiritual" data-en="✨ Spiritual Capital">✨ Capital Espiritual</h4>
+                    <p><strong data-es="Propósito Más Allá del Lucro:" data-en="Purpose Beyond Profit:">Propósito Más Allá del Lucro:</strong> <span data-es="Anclamos nuestro trabajo en el servicio a algo más grande, reconociendo que el comercio puede ser una práctica espiritual cuando se conduce con conciencia de interconexión." data-en="We anchor our work in service to something greater, recognizing that commerce can be a spiritual practice when conducted with awareness of interconnection.">Anclamos nuestro trabajo en el servicio a algo más grande, reconociendo que el comercio puede ser una práctica espiritual cuando se conduce con <span class="highlight-term">conciencia de interconexión<span class="tooltip" data-es="Reconocimiento profundo de que todos los seres y sistemas están fundamentalmente conectados e interdependientes." data-en="Deep recognition that all beings and systems are fundamentally connected and interdependent.">Reconocimiento profundo de que todos los seres y sistemas están fundamentalmente conectados e interdependientes.</span></span>.</span></p>
+                </div>
+            </div>
+
+            <h2 data-es="Artículo II: Las Cuatro Dimensiones del Interés Propio Iluminado" data-en="Article II: The Four Dimensions of Enlightened Self-Interest">Artículo II: Las Cuatro Dimensiones del Interés Propio Iluminado</h2>
+            <p data-es="Abrazamos el marco del Bentoísmo, reconociendo que el verdadero interés propio abarca cuatro dimensiones esenciales:" data-en="We embrace the framework of Bentoism, recognizing that true self-interest encompasses four essential dimensions:">Abrazamos el marco del <span class="highlight-term">Bentoísmo<span class="tooltip" data-es="Teoría que expande el concepto de interés propio más allá del individualismo a corto plazo para incluir cuatro dimensiones: Yo Ahora, Yo Futuro, Nosotros Ahora, y Nosotros Futuro." data-en="Theory that expands the concept of self-interest beyond short-term individualism to include four dimensions: Now Me, Future Me, Now Us, and Future Us.">Teoría que expande el concepto de interés propio más allá del individualismo a corto plazo para incluir cuatro dimensiones: Yo Ahora, Yo Futuro, Nosotros Ahora, y Nosotros Futuro.</span></span>, reconociendo que el verdadero interés propio abarca cuatro dimensiones esenciales:</p>
+
+            <div class="bento-grid">
+                <div class="bento-quadrant">
+                    <h4 data-es="🏃‍♀️ Yo Ahora" data-en="🏃‍♀️ Now Me">🏃‍♀️ Yo Ahora</h4>
+                    <p data-es="Honramos las necesidades y aspiraciones legítimas de los stakeholders presentes, asegurando compensación justa y trabajo significativo." data-en="We honor the legitimate needs and aspirations of present stakeholders, ensuring fair compensation and meaningful work.">Honramos las necesidades y aspiraciones legítimas de los stakeholders presentes, asegurando compensación justa y trabajo significativo.</p>
+                </div>
+                <div class="bento-quadrant">
+                    <h4 data-es="🌱 Yo Futuro" data-en="🌱 Future Me">🌱 Yo Futuro</h4>
+                    <p data-es="Invertimos en capacidades, relaciones y activos que sirvan a nuestro florecimiento a largo plazo y construyan resistencia." data-en="We invest in capabilities, relationships, and assets that serve our long-term flourishing and build resilience.">Invertimos en capacidades, relaciones y activos que sirvan a nuestro florecimiento a largo plazo y construyan resistencia.</p>
+                </div>
+                <div class="bento-quadrant">
+                    <h4 data-es="👥 Nosotros Ahora" data-en="👥 Now Us">👥 Nosotros Ahora</h4>
+                    <p data-es="Servimos las necesidades inmediatas de nuestras comunidades, clientes y ecosistemas, compartiendo recursos generosamente." data-en="We serve the immediate needs of our communities, customers, and ecosystems, sharing resources generously.">Servimos las necesidades inmediatas de nuestras comunidades, clientes y ecosistemas, compartiendo recursos generosamente.</p>
+                </div>
+                <div class="bento-quadrant">
+                    <h4 data-es="🌍 Nosotros Futuro" data-en="🌍 Future Us">🌍 Nosotros Futuro</h4>
+                    <p data-es="Consideramos el impacto de cada decisión en la séptima generación, actuando como ancestros responsables." data-en="We consider the impact of every decision on the seventh generation, acting as responsible ancestors.">Consideramos el impacto de cada decisión en la séptima generación, actuando como ancestros responsables.</p>
+                </div>
+            </div>
+
+            <h2 data-es="Artículo III: Principios Operativos" data-en="Article III: Operating Principles">Artículo III: Principios Operativos</h2>
+
+            <h3 data-es="🔄 El Imperativo Regenerativo" data-en="🔄 The Regenerative Imperative">🔄 El Imperativo Regenerativo</h3>
+            <p data-es="Cada decisión empresarial debe contribuir demostrablemente a la regeneración de al menos una forma de capital mientras no causa daño neto a ninguna otra. Cuando son necesarios compromisos, elegimos el camino que sirve al mayor bien a través del horizonte temporal más largo." data-en="Every business decision must demonstrably contribute to regenerating at least one form of capital while causing no net harm to any other. When trade-offs are necessary, we choose the path that serves the greatest good across the longest time horizon.">Cada decisión empresarial debe contribuir demostrablemente a la regeneración de al menos una forma de capital mientras no causa daño neto a ninguna otra. Cuando son necesarios compromisos, elegimos el camino que sirve al mayor bien a través del horizonte temporal más largo.</p>
+
+            <h3 data-es="⚖️ El Balance Multi-Capital" data-en="⚖️ The Multi-Capital Balance">⚖️ El Balance Multi-Capital</h3>
+            <p data-es="Medimos el éxito no meramente por retornos financieros, sino por nuestro impacto positivo a través de las ocho formas de capital. Publicamos Reportes Anuales de Impacto Multi-Capital que transparentemente dan cuenta de nuestra gestión." data-en="We measure success not merely by financial returns, but by our positive impact across the eight forms of capital. We publish Annual Multi-Capital Impact Reports that transparently account for our stewardship.">Medimos el éxito no meramente por retornos financieros, sino por nuestro <span class="highlight-term">impacto positivo<span class="tooltip" data-es="Contribución medible y verificable al mejoramiento de los sistemas naturales, sociales, culturales y espirituales." data-en="Measurable and verifiable contribution to improving natural, social, cultural, and spiritual systems.">Contribución medible y verificable al mejoramiento de los sistemas naturales, sociales, culturales y espirituales.</span></span> a través de las ocho formas de capital. Publicamos <span class="highlight-term">Reportes Anuales de Impacto Multi-Capital<span class="tooltip" data-es="Documentos transparentes que muestran el desempeño organizacional en las ocho formas de capital, con verificación de terceros." data-en="Transparent documents showing organizational performance across the eight forms of capital, with third-party verification.">Documentos transparentes que muestran el desempeño organizacional en las ocho formas de capital, con verificación de terceros.</span></span> que transparentemente dan cuenta de nuestra gestión.</p>
+
+            <h3 data-es="🧭 El Filtro del Bentoísmo" data-en="🧭 The Bentoism Filter">🧭 El Filtro del Bentoísmo</h3>
+            <p data-es='Antes de cualquier decisión importante, preguntamos: "¿Cómo sirve esto al Yo Ahora, Yo Futuro, Nosotros Ahora y Nosotros Futuro?" Las decisiones que sirven a las cuatro dimensiones reciben prioridad.' data-en='Before any major decision, we ask: "How does this serve Now Me, Future Me, Now Us, and Future Us?" Decisions that serve all four dimensions receive priority.'>Antes de cualquier decisión importante, preguntamos: "¿Cómo sirve esto al Yo Ahora, Yo Futuro, Nosotros Ahora y Nosotros Futuro?" Las decisiones que sirven a las cuatro dimensiones reciben prioridad.</p>
+
+            <h2 data-es="Artículo IV: Compromiso Sagrado" data-en="Article IV: Sacred Commitment">Artículo IV: Compromiso Sagrado</h2>
+            <p data-es="Nos comprometemos a mantener esta Carta como el fundamento de nuestra empresa. Este compromiso se extiende más allá de la obligación legal hacia un pacto moral y espiritual—entre nosotros, con las comunidades que servimos, y con las generaciones aún por venir." data-en="We pledge to uphold this Charter as the foundation of our enterprise. This commitment extends beyond legal obligation to a moral and spiritual covenant—among ourselves, with the communities we serve, and with generations yet to come.">Nos comprometemos a mantener esta Carta como el fundamento de nuestra empresa. Este compromiso se extiende más allá de la obligación legal hacia un <span class="highlight-term">pacto moral y espiritual<span class="tooltip" data-es="Compromiso profundo que trasciende contratos legales, basado en valores compartidos y responsabilidad hacia el bienestar colectivo." data-en="Deep commitment that transcends legal contracts, based on shared values and responsibility toward collective wellbeing.">Compromiso profundo que trasciende contratos legales, basado en valores compartidos y responsabilidad hacia el bienestar colectivo.</span></span>—entre nosotros, con las comunidades que servimos, y con las generaciones aún por venir.</p>
+
+            <div class="preamble">
+                <strong data-es='"Esta Carta se erige como nuestra declaración de independencia del capitalismo extractivo y nuestra declaración de interdependencia con toda la vida. Que nuestras empresas se conviertan en instrumentos de sanación, creatividad y regeneración para nuestro mundo."' data-en='"This Charter stands as our declaration of independence from extractive capitalism and our declaration of interdependence with all life. May our enterprises become instruments of healing, creativity, and regeneration for our world."'>"Esta Carta se erige como nuestra declaración de independencia del capitalismo extractivo y nuestra declaración de interdependencia con toda la vida. Que nuestras empresas se conviertan en instrumentos de sanación, creatividad y regeneración para nuestro mundo."</strong>
+            </div>
+        </div>
+
+        <section class="signature-section" id="firmar">
+            <h2 data-es="Únete al Movimiento" data-en="Join the Movement">Únete al Movimiento</h2>
+            <div class="supporters-count">
+                <span data-es="🌱 Ya somos 2,847 organizaciones comprometidas" data-en="🌱 We are already 2,847 committed organizations">🌱 Ya somos 2,847 organizaciones comprometidas</span>
+            </div>
+            <p data-es="Al firmar esta Carta, tu organización se une a un movimiento global de empresas regenerativas comprometidas con la transformación del sistema económico." data-en="By signing this Charter, your organization joins a global movement of regenerative enterprises committed to transforming the economic system.">Al firmar esta Carta, tu organización se une a un movimiento global de empresas regenerativas comprometidas con la transformación del sistema económico.</p>
+            
+            <form class="signature-form">
+                <input type="text" data-es="Nombre de la Organización" data-en="Organization Name" placeholder="Nombre de la Organización" required>
+                <input type="text" data-es="Nombre del Representante" data-en="Representative Name" placeholder="Nombre del Representante" required>
+                <input type="email" data-es="Email de Contacto" data-en="Contact Email" placeholder="Email de Contacto" required>
+                <input type="text" data-es="País/Región" data-en="Country/Region" placeholder="País/Región" required>
+                <button type="submit" class="btn btn-primary">
+                    <span>✍️</span>
+                    <span data-es="Firmar la Carta" data-en="Sign the Charter">Firmar la Carta</span>
+                </button>
+            </form>
+            
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;" data-es="Al firmar, te comprometes a implementar los principios de esta Carta y a reportar anualmente tu progreso en las ocho formas de capital." data-en="By signing, you commit to implementing the principles of this Charter and reporting annually on your progress across the eight forms of capital.">
+                Al firmar, te comprometes a implementar los principios de esta Carta y a reportar anualmente tu progreso en las ocho formas de capital.
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-es="Una iniciativa del Movimiento Solarpunk Global" data-en="An initiative of the Global Solarpunk Movement">Una iniciativa del Movimiento Solarpunk Global</p>
+            <p data-es="En colaboración con organizaciones regenerativas de todo el mundo" data-en="In collaboration with regenerative organizations worldwide">En colaboración con organizaciones regenerativas de todo el mundo</p>
+            <div class="movement-logos" style="margin-top: 1rem;">
+                <div class="logo-placeholder">🌱</div>
+                <div class="logo-placeholder">🔄</div>
+                <div class="logo-placeholder">🌍</div>
+                <div class="logo-placeholder">⚡</div>
+                <div class="logo-placeholder">🌿</div>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;" data-es="© 2025 Movimiento Solarpunk Global. Esta Carta es un documento abierto para el bien común." data-en="© 2025 Global Solarpunk Movement. This Charter is an open document for the common good.">
+                © 2025 Movimiento Solarpunk Global. Esta Carta es un documento abierto para el bien común.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Language and theme state
+        let currentLang = 'es';
+        let currentTheme = 'light';
+
+        // Language toggle functionality
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            
+            const langText = document.getElementById('langText');
+            if (langText) {
+                langText.textContent = currentLang === 'es' ? 'English' : 'Español';
+            }
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-es][data-en]').forEach(element => {
+                if (element.tagName === 'INPUT') {
+                    element.placeholder = element.getAttribute(`data-${currentLang}`);
+                } else {
+                    element.textContent = element.getAttribute(`data-${currentLang}`);
+                }
+            });
+            
+            // Update theme toggle text based on current language
+            const themeText = document.getElementById('themeText');
+            if (themeText) {
+                if (currentTheme === 'dark') {
+                    themeText.textContent = currentLang === 'es' ? 'Claro' : 'Light';
+                } else {
+                    themeText.textContent = currentLang === 'es' ? 'Oscuro' : 'Dark';
+                }
+            }
+        }
+
+        // Theme toggle functionality
+        function toggleTheme() {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            if (currentTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            
+            const themeIcon = document.getElementById('themeIcon');
+            const themeText = document.getElementById('themeText');
+            
+            if (themeIcon && themeText) {
+                if (currentTheme === 'dark') {
+                    themeIcon.textContent = '☀️';
+                    themeText.textContent = currentLang === 'es' ? 'Claro' : 'Light';
+                } else {
+                    themeIcon.textContent = '🌙';
+                    themeText.textContent = currentLang === 'es' ? 'Oscuro' : 'Dark';
+                }
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize toggles
+            const langToggle = document.getElementById('langToggle');
+            const themeToggle = document.getElementById('themeToggle');
+            
+            if (langToggle) {
+                langToggle.addEventListener('click', toggleLanguage);
+            }
+            
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Form submission
+            const form = document.querySelector('.signature-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const button = this.querySelector('button');
+                    const buttonText = button.querySelector('span:last-child');
+                    const originalText = buttonText.textContent;
+                    
+                    buttonText.textContent = currentLang === 'es' ? '⏳ Procesando...' : '⏳ Processing...';
+                    button.disabled = true;
+                    
+                    setTimeout(() => {
+                        buttonText.textContent = currentLang === 'es' ? '✅ ¡Bienvenido al Movimiento!' : '✅ Welcome to the Movement!';
+                        setTimeout(() => {
+                            buttonText.textContent = originalText;
+                            button.disabled = false;
+                            this.reset();
+                            
+                            // Update counter
+                            const counter = document.querySelector('.supporters-count span');
+                            const currentCount = parseInt(counter.textContent.match(/\d+/)[0]);
+                            const newCountText = currentLang === 'es' 
+                                ? `🌱 Ya somos ${(currentCount + 1).toLocaleString()} organizaciones comprometidas`
+                                : `🌱 We are already ${(currentCount + 1).toLocaleString()} committed organizations`;
+                            counter.textContent = newCountText;
+                        }, 3000);
+                    }, 2000);
+                });
+            }
+
+            // Add entrance animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all capital cards
+            document.querySelectorAll('.capital-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            // Add accessibility improvements
+            // Check for user's preferred color scheme
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                currentTheme = 'dark';
+                toggleTheme(); // This will set dark mode
+            }
+
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                currentTheme = e.matches ? 'light' : 'dark'; // Reverse because toggleTheme will flip it
+                toggleTheme();
+            });
+
+            // Add keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                // Alt + L for language toggle
+                if (e.altKey && e.key === 'l') {
+                    toggleLanguage();
+                }
+                // Alt + T for theme toggle
+                if (e.altKey && e.key === 't') {
+                    toggleTheme();
+                }
+            });
+
+            // Add loading animation
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+
+            // Save preferences to localStorage
+            function savePreferences() {
+                localStorage.setItem('solarPunkLang', currentLang);
+                localStorage.setItem('solarPunkTheme', currentTheme);
+            }
+
+            // Load preferences from localStorage
+            const savedLang = localStorage.getItem('solarPunkLang');
+            const savedTheme = localStorage.getItem('solarPunkTheme');
+
+            if (savedLang && savedLang !== currentLang) {
+                toggleLanguage();
+            }
+
+            if (savedTheme && savedTheme !== currentTheme) {
+                toggleTheme();
+            }
+
+            // Update save preferences on toggle
+            const originalToggleLang = window.toggleLanguage;
+            window.toggleLanguage = function() {
+                originalToggleLang();
+                savePreferences();
+            };
+
+            const originalToggleTheme = window.toggleTheme;
+            window.toggleTheme = function() {
+                originalToggleTheme();
+                savePreferences();
+            };
+
+            // Add parallax effect to hero section
+            let ticking = false;
+            function updateParallax() {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelector('.hero-section');
+                if (parallax) {
+                    parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+                ticking = false;
+            }
+
+            function requestTick() {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', requestTick);
+
+            // Add confetti animation on form submission
+            function createConfetti() {
+                const colors = ['#ffd700', '#4a7c59', '#87ceeb', '#f4a734'];
+                const confettiCount = 50;
+                
+                for (let i = 0; i < confettiCount; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.style.cssText = `
+                        position: fixed;
+                        width: 10px;
+                        height: 10px;
+                        background: ${colors[Math.floor(Math.random() * colors.length)]};
+                        left: ${Math.random() * 100}%;
+                        top: -10px;
+                        opacity: ${Math.random() + 0.5};
+                        transform: rotate(${Math.random() * 360}deg);
+                        animation: confettiFall ${Math.random() * 2 + 1}s ease-out forwards;
+                        z-index: 9999;
+                    `;
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }
+            }
+
+            // Add confetti animation CSS
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes confettiFall {
+                    to {
+                        transform: translateY(100vh) rotate(720deg);
+                        opacity: 0;
+                    }
+                }
+                
+                .highlight-term {
+                    position: relative;
+                }
+                
+                .highlight-term::after {
+                    content: '?';
+                    position: absolute;
+                    top: -8px;
+                    right: -8px;
+                    width: 16px;
+                    height: 16px;
+                    background: var(--accent-gold);
+                    color: var(--text-dark);
+                    border-radius: 50%;
+                    font-size: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0.7;
+                    transition: opacity 0.3s ease;
+                }
+                
+                .highlight-term:hover::after {
+                    opacity: 1;
+                }
+                
+                [data-theme="dark"] h2,
+                [data-theme="dark"] h3,
+                [data-theme="dark"] h4 {
+                    text-shadow: none;
+                }
+                
+                [data-theme="dark"] .main-content {
+                    background: #0f0f0f;
+                    border: none;
+                    box-shadow: 0 -10px 40px rgba(0,0,0,0.8);
+                }
+                
+                [data-theme="dark"] .signature-section {
+                    background: #1a1a1a;
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                }
+                
+                [data-theme="dark"] .signature-form input {
+                    background: #2a2a2a;
+                    color: #ffffff;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                }
+                
+                [data-theme="dark"] .signature-form input:focus {
+                    outline: none;
+                    border-color: var(--accent-gold);
+                    box-shadow: 0 0 0 2px rgba(255, 209, 102, 0.2);
+                }
+                
+                [data-theme="dark"] .signature-form input::placeholder {
+                    color: rgba(255,255,255,0.4);
+                }
+                
+                [data-theme="dark"] .supporters-count {
+                    background: linear-gradient(135deg, #ffd166, #f4a261);
+                    color: #0a0a0a;
+                    box-shadow: 0 4px 15px rgba(255,193,7,0.3);
+                }
+                
+                [data-theme="dark"] .footer {
+                    background: #0a0a0a;
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                    color: #d0d0d0;
+                }
+                
+                [data-theme="dark"] .footer p {
+                    color: #b0b0b0;
+                }
+                
+                [data-theme="dark"] .btn-primary {
+                    background: #ffd166;
+                    color: #0a0a0a;
+                    font-weight: 600;
+                }
+                
+                [data-theme="dark"] .btn-primary:hover {
+                    background: #ffdc85;
+                }
+                
+                [data-theme="dark"] .btn-secondary {
+                    border-color: #ffd166;
+                    color: #ffd166;
+                }
+                
+                [data-theme="dark"] .btn-secondary:hover {
+                    background: rgba(255, 209, 102, 0.1);
+                    border-color: #ffdc85;
+                    color: #ffdc85;
+                }
+                
+                [data-theme="dark"] .movement-badge {
+                    background: linear-gradient(135deg, #ffd166, #f4a261);
+                    color: #0a0a0a;
+                    font-weight: 600;
+                }
+                
+                .scroll-progress {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    height: 3px;
+                    background: var(--accent-gold);
+                    z-index: 10000;
+                    transition: width 0.1s ease;
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Add scroll progress bar
+            const progressBar = document.createElement('div');
+            progressBar.className = 'scroll-progress';
+            document.body.appendChild(progressBar);
+
+            function updateScrollProgress() {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                progressBar.style.width = scrollPercent + '%';
+            }
+
+            window.addEventListener('scroll', updateScrollProgress);
+
+            // Update supporter count periodically (simulate real-time updates)
+            setInterval(() => {
+                const counter = document.querySelector('.supporters-count span');
+                if (counter && Math.random() > 0.7) { // 30% chance
+                    const currentCount = parseInt(counter.textContent.match(/\d+/)[0]);
+                    const newCount = currentCount + Math.floor(Math.random() * 3) + 1;
+                    const newCountText = currentLang === 'es' 
+                        ? `🌱 Ya somos ${newCount.toLocaleString()} organizaciones comprometidas`
+                        : `🌱 We are already ${newCount.toLocaleString()} committed organizations`;
+                    counter.textContent = newCountText;
+                }
+            }, 30000); // Every 30 seconds
+        });
+    </script>
+</body>
+</html>
